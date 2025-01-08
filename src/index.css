@@ -1,0 +1,409 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #001123;
+    color: #fff;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+p {
+    line-height: 1.5rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    width: 100vw;
+    height: 100vh;
+}
+
+.myInfo {
+    position: absolute;
+    left: 20vw;
+    flex-direction: column;
+}
+
+.typewriter {
+    width: 0;
+}
+
+.typewriter2 {
+    width: 0;
+    margin-top: .8rem;
+    animation: step01 3s forwards;
+    animation-delay: 6s;
+    margin-bottom: 0vh;
+}
+
+.typewriter h1 {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: .15em solid transparent;
+    white-space: nowrap; 
+    animation: 
+      typing 2s steps(30, end) forwards, 
+      blink-caret 1s step-end infinite;
+    animation-delay: .5s;
+}
+
+.typewriter2 h2 {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: .15em solid transparent;
+    white-space: nowrap; 
+    animation: 
+      typing2 2s steps(30, end) forwards,
+      blink-caret2 1s step-end infinite;
+    animation-delay: 3s;
+}
+
+.illustration {
+    margin-left: 20vw;
+    animation: step02 2s forwards;
+    animation-delay: 6.2s;
+    transition: all 2s;
+}
+
+.illustration.step06b {
+    transform: translateX(-15vw);
+}
+
+.techs {
+    position: absolute;
+    top: -10vh;
+    font-size: 2rem;
+    animation: step03 8s forwards;
+    animation-delay: 7s;
+}
+
+.tech {
+    filter: drop-shadow(0 0 2px #fff);
+}
+
+.tech img {
+    position: absolute;
+    width: 100%;
+}
+
+.tech img.react {
+    top: 13vh;
+    left: -20vw;
+    width: 160px;
+    transform: scale(0);
+    animation: step04 4s forwards;
+    animation-delay: 8.7s;
+}
+
+.tech img.angular {
+    top: 33vh;
+    left: 27vw;
+    transform: scale(0);
+    width: 110px;
+    animation: step04 4s forwards;
+    animation-delay: 8.7s;
+}
+
+.tech img.html {
+    top: 13vh;
+    left: 20vw;
+    width: 40px;
+    transform: scale(0);
+    animation: step04 4s forwards;
+    animation-delay: 8.8s;
+}
+
+.tech img.css {
+    top: -10vh;
+    left: 22vw;
+    width: 50px;
+    transform: scale(0);
+    animation: step04 4.4s forwards;
+    animation-delay: 8.9s;
+}
+
+.tech img.sass {
+    top: 0vh;
+    left: 32vw;
+    width: 120px;
+    transform: scale(0);
+    animation: step04 4.8s forwards;
+    animation-delay: 8.7s;
+}
+
+.tech img.adobe {
+    top: -5vh;
+    right: 22vw;
+    width: 50px;
+    transform: scale(0);
+    animation: step04 4s forwards;
+    animation-delay: 8.6s;
+}
+
+.tech img.node {
+    top: -5vh;
+    right: 38vw;
+    width: 130px;
+    transform: scale(0);
+    animation: step04 4.2s forwards;
+    animation-delay: 8.8s;
+}
+
+.tech img.sql {
+    top: 32vh;
+    right: 45vw;
+    width: 40px;
+    transform: scale(0);
+    animation: step04 3.8s forwards;
+    animation-delay: 9.1s;
+}
+
+.tech img.js {
+    top: 45vh;
+    right: 32vw;
+    width: 120px;
+    transform: scale(0);
+    animation: step04 4s forwards;
+    animation-delay: 8.6s;
+}
+
+.tech img.figma {
+    top: 65vh;
+    right: 20vw;
+    width: 50px;
+    transform: scale(0);
+    animation: step04 4s forwards;
+    animation-delay: 8.6s;
+}
+
+.tech img.unity {
+    top: 65vh;
+    width: 50px;
+    left: 16vw;
+    transform: scale(0);
+    animation: step04 4s forwards;
+    animation-delay: 9.2s;
+}
+
+.tech img.wordpress {
+    top: 65vh;
+    left: 38vw;
+    width: 50px;
+    transform: scale(0);
+    animation: step04 4s forwards;
+    animation-delay: 9s;
+}
+
+.description {
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-start;
+    right: -80vw;
+    animation: step06 2s forwards;
+    animation-delay: 12.5s;
+    max-width: 30vw;
+}
+
+.arrow {
+    opacity: 0;
+    position: fixed;
+    bottom: 2vh;
+    animation: step05 2s forwards;
+    animation-delay: 15.5s;
+    width: 70px;
+    transition: all 1s;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.arrow img {
+    width: 100%;
+}
+
+.works {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #001123;
+    top: 100vh;
+    flex-direction: column;
+}
+
+.works h2 {
+    color: #fff;
+    font-family: monospace;
+    font-size: 2rem;
+    margin-bottom: 5rem;
+}
+
+.works .work {
+    width: 75vw;
+    height: 55vh;
+}
+
+.works .work .video {
+    width: 65%;
+    height: 100%;
+    margin-right: 5rem;
+}
+
+.works .work .worksDatas {
+    width: 35%;
+}
+
+.works .work .worksDatas h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.works .work .worksDatas p {
+    margin-bottom: .5rem;
+}
+
+.carrousel {
+    gap: 120px;
+}
+
+.carrousel img {
+    width: 60px;
+}
+
+.carrousel img:hover {
+    cursor: pointer;
+}
+
+.dotsContainer {
+    display: flex;
+    justify-content: center;
+    width: 75vw;
+    margin-top: 30px;
+    position: absolute;
+    z-index: 10;
+}
+
+.dot {
+    display: flex;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: gray;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.dot.active {
+    background-color: #fff;
+}
+
+.step07 {
+    animation: step07 2s forwards;
+}
+  
+@keyframes typing {
+    from { width: 0 }
+    to { width: 380px }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+  
+@keyframes typing2 {
+    from { width: 0 }
+    to { width: 220px }
+}
+
+@keyframes blink-caret2 {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+
+@keyframes step01 {
+    from { margin-bottom: 0vh; }
+    to { margin-bottom: 140vh; }
+}
+
+@keyframes step02 {
+    from { margin-left: 20vw; }
+    to { margin-left: 0vw; }
+}
+
+@keyframes step03 {
+    0% {
+        top: -10vh
+    }
+    
+    25% {
+        top: 10vh
+    }
+
+    50% {
+        top: 10vh
+    }
+
+    75% {
+        top: 10vh
+    }
+
+    100% {
+        top: -10vh
+    }
+}
+
+@keyframes step04 {
+    0% {
+        transform: scale(0); 
+    }
+
+    25% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0); 
+    }
+}
+
+@keyframes step05 {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes step06 {
+    from { right: -80vw; }
+    to { right: 20vw; }
+}
+
+@keyframes step06b {
+    from { right: -80vw; }
+    to { right: 28vw; }
+}
+
+@keyframes step07 {
+    from { top: 100vh; }
+    to { top: 0; }
+}
+
