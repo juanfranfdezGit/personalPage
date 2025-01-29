@@ -22,9 +22,7 @@ const worksList = [
     src: '/assets/work01.mp4', 
     nombre: 'Virtual Life', 
     description: 'Tienda de videojuegos online donde podemos crear nuestro usuario donde guardar nuestros videojuegos favoritos para futuras compras, las compras son simuladas ya que se trata solamente de un proyecto para la escuela.',
-    description2: 'La parte visual del proyecto está desarrollado con React, todos los datos del servidor que vamos a renderizar se reciben utilizando axios. Para dar estilos a la página y hacerla más atractiva e intuitiva para el usuario se ha utilizado CSS.',
-    description3: 'El servidor se ha desarrollado con NodeJS, se han usado en el para mejorar el funcionamiento herramientas como JSON Web tokens para iniciar sesión o cookies para guardar la sesión iniciada durante cierto tiempo.',
-    description4: 'Como base de datos he empleado SQL. Se han creado tablas para los datos de usuarios y para los datos de los productos, también se han creado tablas como la lista de deseos donde mediante los ID unimos los datos necesarios de cada producto o usuario para renderizar los datos convenientes.'
+    description2: 'El proyecto esta construido con React para la parte visual, Node para el back y SQL para la base de datos.',
   },
 
   {

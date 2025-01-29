@@ -407,3 +407,20 @@ p {
     to { top: 0; }
 }
 
+@media (max-width: 1350px) {
+    .works .work {
+        width: 68vw;
+    }
+
+    .myInfo {
+        left: 15vw;
+    }
+ 
+    .tech img.adobe {
+        right: 26vw;
+    }
+
+    .tech img.css {
+        left: 25vw;
+    }
+}
