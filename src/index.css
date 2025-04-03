@@ -214,105 +214,90 @@ p {
     max-width: 30vw;
 }
 
-.arrow {
-    opacity: 0;
-    position: fixed;
-    bottom: 2vh;
-    animation: step05 2s forwards;
-    animation-delay: 15.5s;
-    width: 70px;
-    transition: all 1s;
+.description h2 {
+    margin-top: 1rem;
 }
 
-.arrow:hover {
-    cursor: pointer;
-    transform: scale(1.2);
+.description ul {
+    margin-top: 1rem;
 }
 
-.arrow img {
-    width: 100%;
+.description li {
+    list-style: none;
+    display: inline;
+    margin-right: 1rem;
+}
+
+.description img {
+    width: 40px;
 }
 
 .works {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background: #001123;
     top: 100vh;
+    gap: 20vh;
     flex-direction: column;
+    display: none;
+}
+
+.works.step06b {
+    display: flex;
 }
 
 .works h2 {
-    color: #fff;
-    font-family: monospace;
+    font-size: 3rem;
+    margin-bottom: -10vh;
+}
+
+.work {
+    max-width: 80vw;
+    gap: 4rem;
+}
+
+.work:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.workInfo {
+    width: 40%;
+}
+
+.workInfo h2 {
     font-size: 2rem;
-    margin-bottom: 5rem;
-}
-
-.works .work {
-    width: 75vw;
-    height: 55vh;
-}
-
-.works .work .video {
-    width: 65%;
-    height: 100%;
-    margin-right: 5rem;
-}
-
-.works .work .worksDatas {
-    width: 35%;
-}
-
-.works .work .worksDatas h3 {
-    font-size: 1.6rem;
     margin-bottom: 1rem;
 }
 
-.works .work .worksDatas p {
-    margin-bottom: .5rem;
+.workInfo p {
+    margin-bottom: 1rem;
 }
 
-.carrousel {
-    gap: 120px;
-}
-
-.carrousel img {
-    width: 60px;
-}
-
-.carrousel img:hover {
+.workInfo a {
+    color: white;
     cursor: pointer;
+    text-decoration: none;
+    font-size: 1.3rem;
 }
 
-.dotsContainer {
-    display: flex;
-    justify-content: center;
-    width: 75vw;
-    margin-top: 30px;
+.workVideo {
+    width: 60%;
+}
+
+.practices {
     position: absolute;
-    z-index: 10;
+    display: none;
+    top: 330vh;
+    width: 100vw;
+    height: 30vh;
 }
 
-.dot {
+.practices.step06b {
     display: flex;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    border-radius: 50%;
-    background-color: gray;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-  
-.dot.active {
-    background-color: #fff;
 }
 
-.step07 {
-    animation: step07 2s forwards;
+.practices h2 {
+    font-size: 3rem;
 }
-  
+
 @keyframes typing {
     from { width: 0 }
     to { width: 380px }
@@ -408,10 +393,6 @@ p {
 }
 
 @media (max-width: 1350px) {
-    .works .work {
-        width: 68vw;
-    }
-
     .myInfo {
         left: 15vw;
     }
@@ -423,4 +404,25 @@ p {
     .tech img.css {
         left: 25vw;
     }
+
+    .work {
+        flex-wrap: wrap;
+    }
+
+    .workInfo {
+        width: 80%;
+    }
+
+    .workVideo {
+        width: 80%;
+    }
+
+    @keyframes step06 {
+        from { right: -80vw; }
+        to { right: 8vw; }
+    }
+
+    .illustration.step06b {
+        transform: translateX(-20vw);
+    }    
 }

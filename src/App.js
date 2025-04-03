@@ -19,75 +19,57 @@ const techs = [
 const worksList = [
   {
     id:1, 
-    src: '/assets/work01.mp4', 
-    nombre: 'Virtual Life', 
-    description: 'Tienda de videojuegos online donde podemos crear nuestro usuario donde guardar nuestros videojuegos favoritos para futuras compras, las compras son simuladas ya que se trata solamente de un proyecto para la escuela.',
-    description2: 'El proyecto esta construido con React para la parte visual, Node para el back y SQL para la base de datos.',
+    src: '/assets/work03.mp4', 
+    nombre: 'New World Travels', 
+    description: 'New World Travels es mi primer proyecto académico, una agencia de viajes web donde los usuarios pueden explorar destinos y seleccionar la fecha de su viaje a través de un calendario interactivo. La interfaz incluye un efecto parallax que hace que el fondo se desplace, creando una sensación de profundidad y mejorando la experiencia visual del usuario mientras navega por los destinos.',
+    description2: 'La aplicación está desarrollada en HTML, CSS y JavaScript, y aunque es un proyecto sencillo con algunos errores, le tengo un gran cariño porque representa mi primer paso en el desarrollo web. Cada línea de código refleja mi aprendizaje y pasión por la programación.',
+    link: 'https://newworldtravels.netlify.app/'
   },
 
   {
     id:2, 
-    src: '/assets/work02.mp4', 
-    nombre: 'Blog Videojuegos', 
-    description: 'Blog de videojuegos desarrollado solo con HTML y CSS con un resultado muy atractivo',
-    description2: 'Esta página es una practica de maquetación y estilos con un gran resultado.',
+    src: '/assets/work01.mp4', 
+    nombre: 'Virtual Life', 
+    description: 'Tienda de Videojuegos Online es un proyecto académico que simula una tienda digital donde los usuarios pueden registrarse, guardar sus videojuegos favoritos y preparar futuras compras. Si bien las transacciones no son reales, la plataforma ofrece una experiencia interactiva y funcional.',
+    description2: 'El proyecto está desarrollado con React para la interfaz de usuario, Node.js para la lógica del servidor y SQL para la gestión de la base de datos, combinando tecnologías modernas para crear una aplicación web dinámica y bien estructurada. *Al estar alojado en servidores gratuitos puede fallar*',
+    link: 'https://virtuallifefrontend.vercel.app/'
   },
 
   {
-    id:3, 
-    src: '/assets/work03.mp4', 
-    nombre: 'New World Travels', 
-    description: 'Mi primer proyecto escolar. Se trata de una agencia de viajes donde puedes escoger un viaje y elegir el día que lo quieres realizar en el calendario',
-    description2: 'La aplicación está desarrollada en HTML, CSS y Javascript. Es un proyecto simple y con errores, pero al ser el primero al que tengo mucho cariño',
-  },
-
-  {
-    id:4,
-    src: '/assets/work04.mp4', 
-    nombre: 'Smash Burguers', 
-    description: 'Website de Smash burguers construido unicamente con HTML y CSS.',
-    description2: 'Esta web simple es una práctica de maquetación de las muchas que he realizado.'
-  },
-
-  {
-    id: 5,
-    src: '/assets/work05.mp4', 
-    nombre: 'Apple Webstore',
-    description: 'Clon de la web de apple maquetado con HTML y CSS.',
-    description2: 'Para no detener nunca de escribir código y seguir practicando decidí clonar la web de apple.'
+    id: 3,
+    src: '/assets/work06.mp4',
+    nombre: 'Pokemon Duels',
+    description: 'Este proyecto es una aplicación web creada con React que permite a los usuarios abrir sobres de cartas Pokémon de manera interactiva. Utiliza React Context para gestionar el estado global del usuario, permitiendo guardar su progreso y preferencias en formato JSON, mientras que IndexedDB almacena de forma persistente su colección de cartas dentro del navegador. Además, React Router facilita la navegación entre diferentes secciones de la aplicación.',
+    description2: 'Los datos de los Pokémon provienen de un archivo JSON que funciona como una API local, proporcionando la información necesaria sobre cada carta. El diseño de la interfaz está desarrollado con SASS, logrando un estilo atractivo y bien estructurado. Esta combinación de tecnologías ofrece una experiencia fluida y envolvente, recreando la emoción de abrir sobres de cartas y coleccionarlas digitalmente.',
+    link: 'https://pokemon-duels.vercel.app/'
   }
+]
 
+const practices = [
+  {
+    id: 1,
+    nombre: 'Apple E-Commerce',
+    description: 'Apple Webstore es un clon de la página oficial de Apple, diseñado exclusivamente con HTML y CSS como ejercicio de maquetación y estilizado.', 
+    description2: 'Este proyecto nació de mi deseo de seguir practicando y mejorando mis habilidades en desarrollo web, replicando con precisión el diseño limpio y minimalista característico de Apple. Una práctica ideal para perfeccionar la estructura de código y la atención al detalle en el front-end.',
+    link: ''
+  }
 ]
 
 function App() {
 
   const [stepClass, setStepClass] = useState("");
-  const [worksClass, setWorksClass] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setStepClass("step06b");
+      document.body.style.overflowY = "scroll";
     }, 13000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflowY = "hidden";
+    }
   }, []);
-
-  function works() {
-    setWorksClass("step07")
-  }
-
-  const moveLeft = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? worksList.length - 1 : prevIndex - 1));
-  };
-
-  const moveRight = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === worksList.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  const goToIndex = (index) => {
-    setCurrentIndex(index);
-  };
 
   return (
     <>
@@ -117,61 +99,43 @@ function App() {
 
         </div>
 
-        <div class="arrow">
-          <img src="/assets/arrow.png" onClick={works} alt="arrow" />
-        </div>
-
         <div class="description flex step05">
           <p>Desarrollador Full Stack especializado en la creación de aplicaciones web dinámicas y responsivas. Mi tecnología favorita es React, 
-            pero también tengo experiencia con Angular y Vue, lo que me permite adaptarme a las diferentes necesidades de los proyectos y ofrecer 
-            experiencias de usuario de alta calidad a través de diversos marcos de trabajo.</p>
-            <br/>
+          pero también tengo experiencia con Angular y Vue, lo que me permite adaptarme a las diferentes necesidades de los proyectos y ofrecer 
+          experiencias de usuario de alta calidad a través de diversos marcos de trabajo.</p>
+          <br/>
 
           <p>Me encanta afrontar desafíos y siempre estoy dispuesto a abordar cualquier obstáculo que se me presente, viéndolos como oportunidades para aprender 
-            y crecer. Mi objetivo es seguir desarrollando mis habilidades, tanto profesional como personalmente, mientras contribuyo a proyectos innovadores que 
-            tengan un impacto significativo.</p>
+          y crecer. Mi objetivo es seguir desarrollando mis habilidades, tanto profesional como personalmente, mientras contribuyo a proyectos innovadores que 
+          tengan un impacto significativo.</p>
+
+          <h2>Redes Sociales</h2>
+          <ul>
+            <li><a href="https://github.com/juanfranfdezGit" target="_blank"><img src="/assets/github.svg"></img></a></li>
+            <li><a href="https://www.linkedin.com/in/juan-francisco-romero-fernandez-928526225/" target="_blank"><img src="/assets/linkedin.png"></img></a></li>
+          </ul>
         </div>
 
-        <div class={`works flex ${worksClass}`}>
-
+        <div className={`works flex ${stepClass}`}>
           <h2>Proyectos Personales</h2>
-          
-          <div className="carrousel flex">
-
-            <img src='/assets/left.png' alt="left Arrow" onClick={moveLeft} />
-
-            <div className="work">
-              
-              <div class="flex">
-                <div className="video">
-                  <ReactPlayer url={worksList[currentIndex].src} playing muted loop width="100%" height="100%" />
-                </div>
-                
-                <div className="worksDatas">
-                  <h3>{worksList[currentIndex].nombre}</h3>
-                  <p>{worksList[currentIndex].description}</p>
-                  <p>{worksList[currentIndex].description2}</p>
-                  <p>{worksList[currentIndex].description3}</p>
-                  <p>{worksList[currentIndex].description4}</p>
-                </div>
+          {worksList.map(work => (
+            <div className="work flex">
+              <div className="workInfo">
+                <h2>{work.nombre}</h2>
+                <p>{work.description}</p>
+                <p>{work.description2}</p>
+                <a href={work.link} target="_blank">Ir al proyecto</a>
               </div>
-              
-              <div className="dotsContainer">
-                {worksList.map((_, index) => (
-                  <span key={index}
-                  onClick={() => goToIndex(index)}
-                  className={`dot ${currentIndex === index ? 'active' : ''}`}></span>
-                ))}
+              <div className="workVideo">
+                <ReactPlayer url={work.src} controls width='100%' height='100%'></ReactPlayer>
               </div>
-
             </div>
-
-            <img src='/assets/right.png' alt="right Arrow" onClick={moveRight} />
-
-          </div>
-
+          ))}
         </div>
 
+        {/* <div className={`practices flex ${stepClass}`}>
+          <h2>Practicas</h2>
+        </div> */}
       </div>
     </>
   );
