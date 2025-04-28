@@ -13,7 +13,7 @@ const techs = [
   {id: 9,  src: '/assets/sql.png', nombre: 'sql'},
   {id: 10,  src: '/assets/figma.png', nombre: 'figma'},
   {id: 11,  src: '/assets/unity.png', nombre: 'unity'},
-  {id: 12,  src: '/assets/wordpress.png', nombre: 'wordpress'},
+  {id: 12,  src: '/assets/astro.png', nombre: 'astro'},
 ]
 
 const worksList = [
@@ -100,14 +100,10 @@ function App() {
         </div>
 
         <div class="description flex step05">
-          <p>Desarrollador Full Stack especializado en la creación de aplicaciones web dinámicas y responsivas. Mi tecnología favorita es React, 
-          pero también tengo experiencia con Angular y Vue, lo que me permite adaptarme a las diferentes necesidades de los proyectos y ofrecer 
-          experiencias de usuario de alta calidad a través de diversos marcos de trabajo.</p>
-          <br/>
-
-          <p>Me encanta afrontar desafíos y siempre estoy dispuesto a abordar cualquier obstáculo que se me presente, viéndolos como oportunidades para aprender 
-          y crecer. Mi objetivo es seguir desarrollando mis habilidades, tanto profesional como personalmente, mientras contribuyo a proyectos innovadores que 
-          tengan un impacto significativo.</p>
+          <p>Desarrollador Full Stack con experiencia en la creación de aplicaciones web dinámicas y responsivas. 
+            Mi enfoque principal es React, pero también tengo dominio de tecnologías como Angular y Astro. En el backend,
+             manejo Node.js y he trabajado con bases de datos SQL y MongoDB, lo que me permite abordar proyectos de principio a fin, 
+             adaptándome a las necesidades tecnológicas que cada desafío requiera.</p>
 
           <h2>Redes Sociales</h2>
           <ul>

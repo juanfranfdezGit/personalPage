@@ -195,10 +195,10 @@ p {
     animation-delay: 9.2s;
 }
 
-.tech img.wordpress {
+.tech img.astro {
     top: 65vh;
     left: 38vw;
-    width: 50px;
+    width: 120px;
     transform: scale(0);
     animation: step04 4s forwards;
     animation-delay: 9s;
