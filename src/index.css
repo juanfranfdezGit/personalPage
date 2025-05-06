@@ -12,7 +12,8 @@ body {
 }
 
 p {
-    line-height: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
 }
 
 .flex {
@@ -215,7 +216,8 @@ p {
 }
 
 .description h2 {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    font-size: 1.9rem;
 }
 
 .description ul {
@@ -225,77 +227,83 @@ p {
 .description li {
     list-style: none;
     display: inline;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
 }
 
 .description img {
     width: 40px;
+    transition: all .5s;
 }
 
-.works {
-    position: absolute;
-    top: 100vh;
-    gap: 20vh;
+.description img:hover {
+    filter: drop-shadow(0 0 4px #00f0ff);
+}
+
+.projects {
+    top: 980px;
     flex-direction: column;
-    display: none;
-}
-
-.works.step06b {
-    display: flex;
-}
-
-.works h2 {
-    font-size: 3rem;
-    margin-bottom: -10vh;
-}
-
-.work {
-    max-width: 80vw;
-    gap: 4rem;
-}
-
-.work:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.workInfo {
-    width: 40%;
-}
-
-.workInfo h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.workInfo p {
-    margin-bottom: 1rem;
-}
-
-.workInfo a {
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 1.3rem;
-}
-
-.workVideo {
-    width: 60%;
-}
-
-.practices {
-    position: absolute;
-    display: none;
-    top: 330vh;
     width: 100vw;
-    height: 30vh;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 4rem;
+    gap: 2rem;
 }
 
-.practices.step06b {
-    display: flex;
-}
-
-.practices h2 {
+.projects h2 {
+    grid-column: span 2;
+    text-align: center;
     font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.project {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+}
+
+.project:hover .projectInfo {
+    opacity: 1;
+}
+
+.project .projectInfo {
+    position: absolute;
+    padding: 3rem;
+    gap: 2rem;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    opacity: 0;
+    background: #0000009e;
+    transition: all 1s;
+}
+
+.project .projectInfo h3 {
+    font-size: 2rem;
+}
+
+.project .projectInfo p {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+}
+
+.project .projectInfo button {
+    padding: 1rem 3rem;
+    transition: all .5s;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 8px;
+    border: none;
 }
 
 @keyframes typing {
@@ -382,11 +390,6 @@ p {
     to { right: 20vw; }
 }
 
-@keyframes step06b {
-    from { right: -80vw; }
-    to { right: 28vw; }
-}
-
 @keyframes step07 {
     from { top: 100vh; }
     to { top: 0; }
@@ -425,4 +428,12 @@ p {
     .illustration.step06b {
         transform: translateX(-20vw);
     }    
+
+    .description {
+        max-width: 37vw;
+    }
+
+    .projects {
+        top: 880px;
+    }
 }
