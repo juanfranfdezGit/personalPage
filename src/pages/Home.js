@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 
 const techs = [
-  {id: 1, src: '/assets/react.webp', nombre: 'react'},
-  {id: 2, src: '/assets/js.webp', nombre: 'js'},
-  {id: 3,  src: '/assets/angular.png' , nombre: 'angular'},
-  {id: 4,  src: '/assets/html.png', nombre: 'html'},
-  {id: 5,  src: '/assets/css.png', nombre: 'css'},
-  {id: 6,  src: '/assets/sass.png', nombre: 'sass'},
-  {id: 7,  src: '/assets/adobe.png', nombre: 'adobe'},
-  {id: 8,  src: '/assets/node.png', nombre: 'node'},
-  {id: 9,  src: '/assets/sql.png', nombre: 'sql'},
-  {id: 10,  src: '/assets/figma.png', nombre: 'figma'},
-  {id: 11,  src: '/assets/unity.png', nombre: 'unity'},
-  {id: 12,  src: '/assets/astro.png', nombre: 'astro'},
+    {id: 1, src: '/assets/react.webp', nombre: 'react'},
+    {id: 2, src: '/assets/js.webp', nombre: 'js'},
+    {id: 3,  src: '/assets/angular.png' , nombre: 'angular'},
+    {id: 4,  src: '/assets/html.png', nombre: 'html'},
+    {id: 5,  src: '/assets/css.png', nombre: 'css'},
+    {id: 6,  src: '/assets/sass.png', nombre: 'sass'},
+    {id: 7,  src: '/assets/adobe.png', nombre: 'adobe'},
+    {id: 8,  src: '/assets/node.png', nombre: 'node'},
+    {id: 9,  src: '/assets/sql.png', nombre: 'sql'},
+    {id: 10,  src: '/assets/figma.png', nombre: 'figma'},
+    {id: 11,  src: '/assets/unity.png', nombre: 'unity'},
+    {id: 12,  src: '/assets/astro.png', nombre: 'astro'},
 ]
 
 const proyectos = [
