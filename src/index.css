@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #001123;
+    color: #fff;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+li {
+    list-style: none;
+}
