@@ -1,0 +1,92 @@
+.hero {
+  width: 100vw;
+  height: 80vh;
+  gap: 2rem;
+  padding: 0 12rem;
+  position: relative;
+  margin-top: 17vh;
+}
+
+.heroInfo {
+  flex-direction: column;
+  align-items: start !important;
+}
+
+.heroInfo h2 {
+  margin-bottom: 8px;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.heroInfo span {
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 50%,
+    var(--secondary-color-light) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroInfo p {
+  margin-bottom: 80px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 80%;
+}
+
+.heroInfo .socials {
+  gap: 8px;
+}
+
+.heroInfo .socials button {
+  gap: 8px;
+  height: 40px;
+  width: 200px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 50%,
+    var(--secondary-color-light) 100%
+  );
+  color: var(--text-primary);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 4px var(--main-color), 0 0 8px var(--secondary-color),
+    0 0 12px var(--secondary-color-light);
+    margin-right: 20px;
+}
+
+.heroInfo .socials button:hover {
+  box-shadow: 0 0 8px var(--main-color), 0 0 12px var(--secondary-color),
+    0 0 16px var(--secondary-color-light);
+}
+
+.heroInfo .socials button img {
+  width: 32px;
+  filter: invert(1);
+}
+
+.heroInfo img {
+  width: 60px;
+  cursor: pointer;
+}
+
+.heroInfo img.linkedin {
+  width: 70px;
+}
+
+.heroPhoto {
+  width: 50%;
+}

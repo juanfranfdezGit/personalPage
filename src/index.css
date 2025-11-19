@@ -1,32 +1,61 @@
+:root {
+  --main-bg-color: #001123;
+  --main-color: #1e90ff;
+  --main-color-dark: #0f6ad1;
+  --secondary-color: #9d4edd;
+  --secondary-color-light: #c19cff;
+  --secondary-color-dark: #7b2cbf;
+  --text-primary: #e6f4ff;
+  --text-secondary: #9fbed1;
+  --text-details: #6a8791;
+
+  --black: #111;
+}
+
+@font-face {
+  font-family: sora;
+  src: "Sora", sans-serif;
+}
+
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    background: #001123;
-    color: #fff;
-    font-family: sans-serif;
-    overflow: hidden;
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.8rem;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: var(--main-bg-color);
+  color: #fff;
+  font-family: sora;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
 }
 
 a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
+}
+
+a:target {
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 50%,
+    var(--secondary-color-light) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
