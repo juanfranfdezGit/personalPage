@@ -29,10 +29,15 @@
   align-items: center;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--main-bg-color);
   color: #fff;
   font-family: sora;
+  overflow-x: hidden;
 }
 
 p {
@@ -58,4 +63,25 @@ a:target {
 
 li {
   list-style: none;
+}
+
+button {
+  height: 40px;
+  width: 200px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 50%,
+    var(--secondary-color-light) 100%
+  );
+  color: var(--text-primary);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 4px var(--main-color), 0 0 8px var(--secondary-color),
+    0 0 12px var(--secondary-color-light);
+  margin-right: 20px;
 }

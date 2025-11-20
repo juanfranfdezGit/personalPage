@@ -1,0 +1,46 @@
+.about {
+  padding: 12rem 12rem 0;
+}
+
+.aboutPhoto {
+  width: 50%;
+}
+
+.aboutPhoto img {
+  width: 60%;
+}
+
+.aboutInfo {
+  width: 50%;
+}
+
+.aboutInfo h2 {
+  font-size: 3rem;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 20%,
+    var(--secondary-color-light) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aboutInfo p.description {
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+.aboutInfo p.description span {
+  color: var(--secondary-color);
+}
+
+.aboutInfo p {
+  width: 85%;
+  font-size: 1.2rem;
+  margin-top: 40px;
+}
+
+.aboutInfo button {
+    margin-top: 20px;
+}

@@ -9,6 +9,7 @@
 
 .heroInfo {
   flex-direction: column;
+  z-index: 3;
   align-items: start !important;
 }
 
@@ -48,24 +49,6 @@
 
 .heroInfo .socials button {
   gap: 8px;
-  height: 40px;
-  width: 200px;
-  font-size: 1rem;
-  font-weight: 600;
-  background: linear-gradient(
-    90deg,
-    var(--main-color) 0%,
-    var(--secondary-color) 50%,
-    var(--secondary-color-light) 100%
-  );
-  color: var(--text-primary);
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 0 4px var(--main-color), 0 0 8px var(--secondary-color),
-    0 0 12px var(--secondary-color-light);
-  margin-right: 20px;
 }
 
 .heroInfo .socials button:hover {
@@ -82,6 +65,11 @@
   width: 60px;
   filter: drop-shadow(0 0 8px #111);
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.heroInfo img:hover {
+  filter: drop-shadow(0 0 8px var(--secondary-color));
 }
 
 .heroInfo img.linkedin {
@@ -126,4 +114,13 @@
 .heroPhoto .techIco.node {
   right: 10.5%;
   bottom: 260px;
+}
+
+.backWaves {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 95vw;
+  opacity: 0.3;
 }

@@ -27,6 +27,8 @@ export default function Hero() {
           <img className="techIco react" src="/assets/react.png" alt="react" />
           <img className="techIco node" src="/assets/node.webp" alt="node" />
         </div>
+
+        <img src="/assets/waves.png" alt="waves" className="backWaves" />
       </section>
     </>
   );
