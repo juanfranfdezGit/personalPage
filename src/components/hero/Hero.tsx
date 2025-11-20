@@ -21,7 +21,12 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="heroPhoto"></div>
+        <div className="heroPhoto">
+          <img className="principalPhoto" src="/assets/photo.png" alt="principal photo" />
+          <img className="techIco angular" src="/assets/angular.png" alt="angular" />
+          <img className="techIco react" src="/assets/react.png" alt="react" />
+          <img className="techIco node" src="/assets/node.webp" alt="node" />
+        </div>
       </section>
     </>
   );

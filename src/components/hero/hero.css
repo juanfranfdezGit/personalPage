@@ -65,7 +65,7 @@
   transition: all 0.3s;
   box-shadow: 0 0 4px var(--main-color), 0 0 8px var(--secondary-color),
     0 0 12px var(--secondary-color-light);
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .heroInfo .socials button:hover {
@@ -80,6 +80,7 @@
 
 .heroInfo img {
   width: 60px;
+  filter: drop-shadow(0 0 8px #111);
   cursor: pointer;
 }
 
@@ -89,4 +90,40 @@
 
 .heroPhoto {
   width: 50%;
+  height: 50%;
+  position: relative;
+}
+
+.heroPhoto .principalPhoto {
+  width: 450px;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  filter: drop-shadow(0 0 12px var(--main-color));
+  z-index: 2;
+}
+
+.heroPhoto .techIco {
+  width: 50px;
+  position: absolute;
+  filter: drop-shadow(0 0 4px var(--black));
+}
+
+.heroPhoto .techIco.angular {
+  width: 70px;
+  right: 0%;
+  bottom: -40px;
+  z-index: 3;
+}
+
+.heroPhoto .techIco.react {
+  width: 60px;
+  left: 42%;
+  bottom: 140px;
+  z-index: 3;
+}
+
+.heroPhoto .techIco.node {
+  right: 10.5%;
+  bottom: 260px;
 }
