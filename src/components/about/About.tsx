@@ -21,6 +21,8 @@ export default function About() {
           </p>
           <button>Ver Proyectos</button>
         </div>
+
+        <img className="backgroundCircles" src="/assets/circles.png" alt="background circles" />
       </section>
     </>
   );

@@ -1,5 +1,6 @@
 .about {
-  padding: 12rem 12rem 0;
+  padding: 12rem;
+  position: relative;
 }
 
 .aboutPhoto {
@@ -43,4 +44,13 @@
 
 .aboutInfo button {
     margin-top: 20px;
+}
+
+.backgroundCircles {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  z-index: -1;
+  transform: rotate(30deg);
+  opacity: .15;
 }

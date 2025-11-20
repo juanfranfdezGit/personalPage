@@ -1,0 +1,69 @@
+.projects {
+  padding: 0 12rem;
+  width: 100vw;
+  height: 80vh;
+  background: var(--secondary-bg-color);
+  flex-direction: column;
+}
+
+.projects h2 {
+  font-size: 3rem;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 60%,
+    var(--secondary-color-light) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projectsContainer {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.project {
+  width: 100%;
+  height: 280px;
+  background: var(--main-color);
+  border-radius: 12px;
+  box-shadow: 0 0 8px var(--black);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.project:hover .projectInfo {
+  top: 0;
+}
+
+.projectInfo {
+  transition: all 1s;
+  padding: 1rem 2rem;
+  flex-direction: column;
+  text-align: center;
+  background: var(--black-opacity);
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+.projectInfo h3 {
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+}
+
+.projectInfo p {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  margin-top: 12px;
+}
+
+.project.hoid {
+  background: url(/public/assets/hoid.png);
+  background-size: cover;
+}

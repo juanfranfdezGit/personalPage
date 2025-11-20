@@ -1,5 +1,6 @@
 :root {
   --main-bg-color: #001123;
+  --secondary-bg-color: #021a35;
   --main-color: #1e90ff;
   --main-color-dark: #0f6ad1;
   --secondary-color: #9d4edd;
@@ -10,6 +11,7 @@
   --text-details: #6a8791;
 
   --black: #111;
+  --black-opacity: #111111be;
 }
 
 @font-face {
