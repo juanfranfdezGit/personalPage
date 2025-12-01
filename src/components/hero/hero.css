@@ -1,0 +1,126 @@
+.hero {
+  width: 100vw;
+  height: 80vh;
+  gap: 2rem;
+  padding: 0 12rem;
+  position: relative;
+  margin-top: 17vh;
+}
+
+.heroInfo {
+  flex-direction: column;
+  z-index: 3;
+  align-items: start !important;
+}
+
+.heroInfo h2 {
+  margin-bottom: 8px;
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.heroInfo span {
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 50%,
+    var(--secondary-color-light) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroInfo p {
+  margin-bottom: 80px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 80%;
+}
+
+.heroInfo .socials {
+  gap: 8px;
+}
+
+.heroInfo .socials button {
+  gap: 8px;
+}
+
+.heroInfo .socials button:hover {
+  box-shadow: 0 0 8px var(--main-color), 0 0 12px var(--secondary-color),
+    0 0 16px var(--secondary-color-light);
+}
+
+.heroInfo .socials button img {
+  width: 32px;
+  filter: invert(1);
+}
+
+.heroInfo img {
+  width: 60px;
+  filter: drop-shadow(0 0 8px #111);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.heroInfo img:hover {
+  filter: drop-shadow(0 0 8px var(--secondary-color));
+}
+
+.heroInfo img.linkedin {
+  width: 70px;
+}
+
+.heroPhoto {
+  width: 50%;
+  height: 50%;
+  position: relative;
+}
+
+.heroPhoto .principalPhoto {
+  width: 450px;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  filter: drop-shadow(0 0 12px var(--main-color));
+  z-index: 2;
+}
+
+.heroPhoto .techIco {
+  width: 50px;
+  position: absolute;
+  filter: drop-shadow(0 0 4px var(--black));
+}
+
+.heroPhoto .techIco.angular {
+  width: 70px;
+  right: 0%;
+  bottom: -40px;
+  z-index: 3;
+}
+
+.heroPhoto .techIco.react {
+  width: 60px;
+  left: 42%;
+  bottom: 140px;
+  z-index: 3;
+}
+
+.heroPhoto .techIco.node {
+  right: 10.5%;
+  bottom: 260px;
+}
+
+.backWaves {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 95vw;
+  opacity: 0.3;
+}

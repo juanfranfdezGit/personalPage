@@ -1,0 +1,41 @@
+footer {
+    padding: 4rem 12rem;
+    flex-direction: column;
+}
+
+footer p {
+    margin-bottom: 2rem;
+}
+
+footer .socials {
+  gap: 8px;
+}
+
+footer .socials button {
+  gap: 8px;
+}
+
+footer .socials button:hover {
+  box-shadow: 0 0 8px var(--main-color), 0 0 12px var(--secondary-color),
+    0 0 16px var(--secondary-color-light);
+}
+
+footer .socials button img {
+  width: 32px;
+  filter: invert(1);
+}
+
+footer img {
+  width: 60px;
+  filter: drop-shadow(0 0 8px #111);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+footer img:hover {
+  filter: drop-shadow(0 0 8px var(--secondary-color));
+}
+
+footer img.linkedin {
+  width: 70px;
+}

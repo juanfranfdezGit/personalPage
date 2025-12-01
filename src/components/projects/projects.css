@@ -1,0 +1,82 @@
+.projects {
+  padding: 30rem 12rem;
+  width: 100vw;
+  height: 80vh;
+  background: var(--secondary-bg-color);
+  flex-direction: column;
+}
+
+.projects h2 {
+  font-size: 3rem;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 60%,
+    var(--secondary-color-light) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projectsContainer {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.project {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(
+    135deg,
+    rgba(2, 26, 53, 0.35),
+    rgba(157, 78, 221, 0.12)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left-color: rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 0 8px var(--black);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+.project:hover .projectInfo {
+  top: 0;
+}
+
+.projectInfo {
+  transition: all 1s;
+  padding: 1rem 2rem;
+  flex-direction: column;
+  text-align: center;
+  background: var(--black-opacity);
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 2;
+}
+
+.projectInfo h3 {
+  font-size: 1.4rem;
+  color: var(--secondary-color);
+}
+
+.projectInfo p {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  margin-top: 12px;
+}
+.project img {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px var(--main-color));
+}

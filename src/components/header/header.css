@@ -1,0 +1,32 @@
+.navbar {
+  padding: 3rem 12rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 15vh;
+  transition: all 0.2s;
+  z-index: 10;
+  background: var(--main-bg-color);
+  justify-content: space-between !important;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 0 20px var(--black);
+}
+
+.navbarList {
+  gap: 1.2rem;
+}
+
+.navbar h1 {
+  font-size: 1.2rem;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 50%,
+    var(--secondary-color-light) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

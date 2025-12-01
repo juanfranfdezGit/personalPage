@@ -1,453 +1,90 @@
+:root {
+  --main-bg-color: #001123;
+  --secondary-bg-color: #021a35;
+  --main-color: #1e90ff;
+  --main-color-dark: #0f6ad1;
+  --secondary-color: #9d4edd;
+  --secondary-color-opacity: #9d4edd27;
+  --secondary-color-light: #c19cff;
+  --secondary-color-dark: #7b2cbf;
+  --text-primary: #e6f4ff;
+  --text-secondary: #9fbed1;
+  --text-details: #6a8791;
+
+  --black: #111;
+  --black-opacity: #111111be;
+}
+
+@font-face {
+  font-family: sora;
+  src: "Sora", sans-serif;
+}
+
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    background: #001123;
-    color: #fff;
-    font-family: sans-serif;
-    overflow: hidden;
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.8rem;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero {
-    width: 100vw;
-    height: 100vh;
+html {
+  scroll-behavior: smooth;
 }
 
-.myInfo {
-    position: absolute;
-    left: 20vw;
-    flex-direction: column;
+body {
+  background: var(--main-bg-color);
+  color: #fff;
+  font-family: sora;
+  overflow-x: hidden;
 }
 
-.typewriter {
-    width: 0;
+p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
 }
 
-.typewriter2 {
-    width: 0;
-    margin-top: .8rem;
-    animation: step01 3s forwards;
-    animation-delay: 6s;
-    margin-bottom: 0vh;
+a {
+  text-decoration: none;
+  color: #fff;
 }
 
-.typewriter h1 {
-    color: #fff;
-    font-family: monospace;
-    overflow: hidden;
-    border-right: .15em solid transparent;
-    white-space: nowrap; 
-    animation: 
-      typing 2s steps(30, end) forwards, 
-      blink-caret 1s step-end infinite;
-    animation-delay: .5s;
+a:target {
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 50%,
+    var(--secondary-color-light) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.typewriter2 h2 {
-    color: #fff;
-    font-family: monospace;
-    overflow: hidden;
-    border-right: .15em solid transparent;
-    white-space: nowrap; 
-    animation: 
-      typing2 2s steps(30, end) forwards,
-      blink-caret2 1s step-end infinite;
-    animation-delay: 3s;
+li {
+  list-style: none;
 }
 
-.illustration {
-    margin-left: 20vw;
-    animation: step02 2s forwards;
-    animation-delay: 6.2s;
-    transition: all 2s;
-}
-
-.illustration.step06b {
-    transform: translateX(-15vw);
-}
-
-.techs {
-    position: absolute;
-    top: -10vh;
-    font-size: 2rem;
-    animation: step03 8s forwards;
-    animation-delay: 7s;
-}
-
-.tech {
-    filter: drop-shadow(0 0 2px #fff);
-}
-
-.tech img {
-    position: absolute;
-    width: 100%;
-}
-
-.tech img.react {
-    top: 13vh;
-    left: -20vw;
-    width: 160px;
-    transform: scale(0);
-    animation: step04 4s forwards;
-    animation-delay: 8.7s;
-}
-
-.tech img.angular {
-    top: 33vh;
-    left: 27vw;
-    transform: scale(0);
-    width: 110px;
-    animation: step04 4s forwards;
-    animation-delay: 8.7s;
-}
-
-.tech img.html {
-    top: 13vh;
-    left: 20vw;
-    width: 40px;
-    transform: scale(0);
-    animation: step04 4s forwards;
-    animation-delay: 8.8s;
-}
-
-.tech img.css {
-    top: -10vh;
-    left: 22vw;
-    width: 50px;
-    transform: scale(0);
-    animation: step04 4.4s forwards;
-    animation-delay: 8.9s;
-}
-
-.tech img.sass {
-    top: 0vh;
-    left: 32vw;
-    width: 120px;
-    transform: scale(0);
-    animation: step04 4.8s forwards;
-    animation-delay: 8.7s;
-}
-
-.tech img.adobe {
-    top: -5vh;
-    right: 22vw;
-    width: 50px;
-    transform: scale(0);
-    animation: step04 4s forwards;
-    animation-delay: 8.6s;
-}
-
-.tech img.node {
-    top: -5vh;
-    right: 38vw;
-    width: 130px;
-    transform: scale(0);
-    animation: step04 4.2s forwards;
-    animation-delay: 8.8s;
-}
-
-.tech img.sql {
-    top: 32vh;
-    right: 45vw;
-    width: 40px;
-    transform: scale(0);
-    animation: step04 3.8s forwards;
-    animation-delay: 9.1s;
-}
-
-.tech img.js {
-    top: 45vh;
-    right: 32vw;
-    width: 120px;
-    transform: scale(0);
-    animation: step04 4s forwards;
-    animation-delay: 8.6s;
-}
-
-.tech img.figma {
-    top: 65vh;
-    right: 20vw;
-    width: 50px;
-    transform: scale(0);
-    animation: step04 4s forwards;
-    animation-delay: 8.6s;
-}
-
-.tech img.unity {
-    top: 65vh;
-    width: 50px;
-    left: 16vw;
-    transform: scale(0);
-    animation: step04 4s forwards;
-    animation-delay: 9.2s;
-}
-
-.tech img.astro {
-    top: 65vh;
-    left: 38vw;
-    width: 120px;
-    transform: scale(0);
-    animation: step04 4s forwards;
-    animation-delay: 9s;
-}
-
-.description {
-    position: absolute;
-    flex-direction: column;
-    align-items: flex-start;
-    right: -80vw;
-    animation: step06 2s forwards;
-    animation-delay: 12.5s;
-    max-width: 30vw;
-}
-
-.description h2 {
-    margin-top: 1.5rem;
-    font-size: 1.9rem;
-}
-
-.description ul {
-    margin-top: 1rem;
-}
-
-.description li {
-    list-style: none;
-    display: inline;
-    margin-right: 1.5rem;
-}
-
-.description img {
-    width: 40px;
-    transition: all .5s;
-}
-
-.description img:hover {
-    filter: drop-shadow(0 0 4px #00f0ff);
-}
-
-.projects {
-    top: 980px;
-    flex-direction: column;
-    width: 100vw;
-    position: absolute;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 4rem;
-    gap: 2rem;
-}
-
-.projects h2 {
-    grid-column: span 2;
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.project {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 340px;
-    box-shadow: 0 0 12px #000;
-}
-
-.project:hover .projectInfo {
-    opacity: 1;
-}
-
-.project .projectInfo {
-    position: absolute;
-    padding: 1rem;
-    gap: 1rem;
-    top: 0;
-    left: 0;
-    height: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    z-index: 2;
-    opacity: 0;
-    background: #0000009e;
-    transition: all 1s;
-}
-
-.project .projectInfo h3 {
-    font-size: 2rem;
-}
-
-.project .projectInfo p {
-    font-size: 1rem;
-    line-height: 1.4rem;
-}
-
-.project .projectInfo button {
-    padding: 1rem 3rem;
-    transition: all .5s;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 8px;
-    border: none;
-}
-
-.videoWrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.videoWrapper video {
-    object-fit: cover !important;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 380px }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
-}
-  
-@keyframes typing2 {
-    from { width: 0 }
-    to { width: 220px }
-}
-
-@keyframes blink-caret2 {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
-}
-
-@keyframes step01 {
-    from { margin-bottom: 0vh; }
-    to { margin-bottom: 140vh; }
-}
-
-@keyframes step02 {
-    from { margin-left: 20vw; }
-    to { margin-left: 0vw; }
-}
-
-@keyframes step03 {
-    0% {
-        top: -10vh
-    }
-    
-    25% {
-        top: 10vh
-    }
-
-    50% {
-        top: 10vh
-    }
-
-    75% {
-        top: 10vh
-    }
-
-    100% {
-        top: -10vh
-    }
-}
-
-@keyframes step04 {
-    0% {
-        transform: scale(0); 
-    }
-
-    25% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1);
-    }
-
-    75% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: scale(0); 
-    }
-}
-
-@keyframes step05 {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes step06 {
-    from { right: -80vw; }
-    to { right: 20vw; }
-}
-
-@keyframes step07 {
-    from { top: 100vh; }
-    to { top: 0; }
-}
-
-@media (max-width: 1350px) {
-    .myInfo {
-        left: 15vw;
-    }
- 
-    .tech img.adobe {
-        right: 26vw;
-    }
-
-    .tech img.css {
-        left: 25vw;
-    }
-
-    .work {
-        flex-wrap: wrap;
-    }
-
-    .workInfo {
-        width: 80%;
-    }
-
-    .workVideo {
-        width: 80%;
-    }
-
-    @keyframes step06 {
-        from { right: -80vw; }
-        to { right: 8vw; }
-    }
-
-    .illustration.step06b {
-        transform: translateX(-20vw);
-    }    
-
-    .description {
-        max-width: 37vw;
-    }
-
-    .projects {
-        top: 880px;
-    }
+button {
+  height: 40px;
+  width: 200px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 50%,
+    var(--secondary-color-light) 100%
+  );
+  color: var(--text-primary);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 4px var(--main-color), 0 0 8px var(--secondary-color),
+    0 0 12px var(--secondary-color-light);
+  margin-right: 20px;
 }

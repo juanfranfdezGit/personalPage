@@ -1,0 +1,57 @@
+.about {
+  padding: 12rem;
+  position: relative;
+}
+
+.aboutPhoto {
+  width: 50%;
+}
+
+.aboutPhoto img {
+  width: 40%;
+  mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
+}
+
+.aboutInfo {
+  width: 50%;
+}
+
+.aboutInfo h2 {
+  font-size: 3rem;
+  background: linear-gradient(
+    90deg,
+    var(--main-color) 0%,
+    var(--secondary-color) 20%,
+    var(--secondary-color-light) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aboutInfo p.description {
+  font-size: 1.1rem;
+  margin-top: 0;
+}
+
+.aboutInfo p.description span {
+  color: var(--secondary-color);
+}
+
+.aboutInfo p {
+  width: 85%;
+  font-size: 1.2rem;
+  margin-top: 40px;
+}
+
+.aboutInfo button {
+  margin-top: 20px;
+}
+
+.backgroundCircles {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  z-index: -1;
+  transform: rotate(30deg);
+  opacity: 0.15;
+}
