@@ -1,6 +1,15 @@
 import "./hero.css";
+import CV from "/assets/cv.pdf";
 
 export default function Hero() {
+  const goTo = () => {
+    window.open("https://www.linkedin.com/in/juan-francisco-romero-fernandez-928526225/", "_blank");
+  }
+
+  const goToGit = () => {
+    window.open("https://github.com/juanfranfdezGit", "_blank");
+  }
+
   return (
     <>
       <section id="Hero" className="hero flex">
@@ -13,11 +22,11 @@ export default function Hero() {
           </p>
 
           <div className="socials flex">
-            <button className="flex">
+            <button className="flex" onClick={() => window.open(CV, "_blank")}>
               Descargar CV <img src="/assets/download.png" alt="download" />
             </button>
-            <img src="/assets/github.png" alt="github" />
-            <img src="/assets/linkedin.webp" alt="linkedin" className="linkedin" />
+            <img src="/assets/github.png" alt="github" onClick={goToGit} />
+            <img src="/assets/linkedin.webp" alt="linkedin" className="linkedin" onClick={goTo} />
           </div>
         </div>
 
