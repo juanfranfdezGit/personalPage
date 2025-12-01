@@ -29,7 +29,16 @@
 .project {
   width: 100%;
   height: 280px;
-  background: var(--main-color);
+  background: linear-gradient(
+    135deg,
+    rgba(2, 26, 53, 0.35),
+    rgba(157, 78, 221, 0.12)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left-color: rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.18);
   border-radius: 12px;
   box-shadow: 0 0 8px var(--black);
   overflow: hidden;
@@ -50,6 +59,7 @@
   position: absolute;
   left: 0;
   top: 100%;
+  z-index: 2;
 }
 
 .projectInfo h3 {
@@ -62,8 +72,11 @@
   line-height: 1.4rem;
   margin-top: 12px;
 }
-
-.project.hoid {
-  background: url(/public/assets/hoid.png);
-  background-size: cover;
+.project img {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px var(--main-color));
 }
