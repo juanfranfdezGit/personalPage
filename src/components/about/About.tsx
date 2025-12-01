@@ -5,7 +5,7 @@ export default function About() {
     <>
       <section id="About" className="flex about">
         <div className="aboutPhoto">
-          <img src="/assets/photo.png" alt="personal photo 02" />
+          <img src="/assets/photo2.png" alt="personal photo 02" />
         </div>
         <div className="aboutInfo">
           <h2>Sobre Mi</h2>

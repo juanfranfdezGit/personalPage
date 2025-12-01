@@ -9,13 +9,6 @@ const projects = [
     img: "/assets/hoid.png",
   },
   {
-    title: "Pokemon Duels",
-    description:
-      "Esta aplicación de Pokémon permite a los usuarios abrir sobres de cartas simulando la experiencia de una tienda de cartas coleccionables. Desarrollada con React, incluye un sistema local de gestión de usuarios utilizando una base de datos interna en JSON, lo que permite a cada usuario guardar y cargar su colección personal de cartas, manteniendo su progreso de forma persistente de forma local.",
-    link: "https://pokemon-duels.vercel.app/",
-    img: "/assets/pokemon.png",
-  },
-  {
     title: "Hotel Miranda",
     description:
       "Proyecto web para Hotel, desarrollado durante el training en Oxygen Academy, aplicando una metodología de trabajo por sprints. Se trabajó a partir de un diseño en Figma y una documentación técnica detallada, simulando un entorno profesional de desarrollo. Este ejercicio de maquetación se realizó utilizando HTML y Sass, aplicando la metodología BEM para una estructura de código clara, escalable y mantenible.",
@@ -23,11 +16,32 @@ const projects = [
     img: "/assets/miranda.png",
   },
   {
+    title: "Pokemon Duels",
+    description:
+      "Esta aplicación de Pokémon permite a los usuarios abrir sobres de cartas simulando la experiencia de una tienda de cartas coleccionables. Desarrollada con React, incluye un sistema local de gestión de usuarios utilizando una base de datos interna en JSON, lo que permite a cada usuario guardar y cargar su colección personal de cartas, manteniendo su progreso de forma persistente de forma local.",
+    link: "https://pokemon-duels.vercel.app/",
+    img: "/assets/pokemon.png",
+  },
+  {
     title: "Pixel Flow",
     description:
       "Esta aplicación, inspirada en Pinterest, está desarrollada con React y consume imágenes desde la API de Unsplash, permitiendo a los usuarios explorar y buscar fotografías de alta calidad. Utiliza Redux para manejar un sistema de CRUD local de imágenes favoritas, lo que permite guardar, eliminar y gestionar colecciones personalizadas de forma fluida, todo almacenado en el estado local del navegador sin necesidad de backend.",
     link: "https://pixel-flow-self.vercel.app/",
     img: "/assets/pixel.png",
+  },
+  {
+    title: "Videogames Blog",
+    description:
+      "Proyecto de maquetación de un blog de videojuegos desarrollado con HTML y CSS, utilizando técnicas modernas como Flexbox, Grid, variables CSS y diseño responsive. Incluye secciones de noticias, análisis y reseñas, con una interfaz limpia, dinámica y optimizada para distintos dispositivos.",
+    link: "https://videogames-web.vercel.app/",
+    img: "/assets/games.png",
+  },
+  {
+    title: "Modelo 3D",
+    description:
+      "Proyecto de visualización 3D con Three.js que integra un modelo interactivo renderizado en tiempo real. Incluye iluminación dinámica, materiales PBR, controles orbitales y animaciones suaves, ofreciendo una experiencia inmersiva y optimizada para navegadores modernos.",
+    link: "https://3dcar-sable.vercel.app/",
+    img: "/assets/car.png",
   },
 ];
 

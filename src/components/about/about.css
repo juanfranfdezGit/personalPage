@@ -8,7 +8,8 @@
 }
 
 .aboutPhoto img {
-  width: 60%;
+  width: 40%;
+  mask-image: linear-gradient(to bottom, black 95%, transparent 100%);
 }
 
 .aboutInfo {
@@ -43,7 +44,7 @@
 }
 
 .aboutInfo button {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .backgroundCircles {
@@ -52,5 +53,5 @@
   top: 20%;
   z-index: -1;
   transform: rotate(30deg);
-  opacity: .15;
+  opacity: 0.15;
 }
