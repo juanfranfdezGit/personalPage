@@ -80,3 +80,15 @@
   z-index: 1;
   filter: drop-shadow(0 0 8px var(--main-color));
 }
+
+@media (max-width: 1440px) {
+  .projects {
+    padding: 40rem 6rem;
+  }
+}
+
+@media (max-width: 1340px) {
+  .projectsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

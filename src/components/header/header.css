@@ -30,3 +30,9 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@media (max-width: 1440px) {
+  .navbar {
+    padding: 3rem 6rem;
+  }
+}

@@ -99,20 +99,20 @@
 
 .heroPhoto .techIco.angular {
   width: 70px;
-  right: 0%;
+  right: 0vw;
   bottom: -40px;
   z-index: 3;
 }
 
 .heroPhoto .techIco.react {
   width: 60px;
-  left: 42%;
+  left: 14vw;
   bottom: 140px;
   z-index: 3;
 }
 
 .heroPhoto .techIco.node {
-  right: 10.5%;
+  right: 5vw;
   bottom: 260px;
 }
 
@@ -123,4 +123,23 @@
   transform: translate(-50%);
   width: 95vw;
   opacity: 0.3;
+}
+
+@media (max-width: 1440px) {
+  .hero {
+    padding: 0 6rem;
+  }
+
+  .heroPhoto .techIco.angular {
+    right: -2vw;
+    bottom: -80px;
+  }
+
+  .heroPhoto .techIco.react {
+    left: 1vw;
+  }
+
+  .heroPhoto .techIco.node {
+    right: 5vw;
+  }
 }

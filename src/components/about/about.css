@@ -55,3 +55,17 @@
   transform: rotate(30deg);
   opacity: 0.15;
 }
+
+@media (max-width: 1440px) {
+  .about {
+    padding: 12rem 6rem;
+  }
+
+  .aboutPhoto img {
+    width: 55%;
+  }
+
+  .backgroundCircles {
+    left: 0%;
+  }
+}
