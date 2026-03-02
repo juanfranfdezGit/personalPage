@@ -1,24 +1,9 @@
-:root {
-  --main-bg-color: #001123;
-  --secondary-bg-color: #021a35;
-  --main-color: #1e90ff;
-  --main-color-dark: #0f6ad1;
-  --secondary-color: #9d4edd;
-  --secondary-color-opacity: #9d4edd27;
-  --secondary-color-light: #c19cff;
-  --secondary-color-dark: #7b2cbf;
-  --text-primary: #e6f4ff;
-  --text-secondary: #9fbed1;
-  --text-details: #6a8791;
-
-  --black: #111;
-  --black-opacity: #111111be;
-}
-
 @font-face {
   font-family: sora;
   src: "Sora", sans-serif;
 }
+
+@import url("./room/avatar.css");
 
 * {
   box-sizing: border-box;
@@ -32,59 +17,8 @@
   align-items: center;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--main-bg-color);
-  color: #fff;
-  font-family: sora;
-  overflow-x: hidden;
-}
-
-p {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
-
-a:target {
-  background: linear-gradient(
-    90deg,
-    var(--main-color) 0%,
-    var(--secondary-color) 50%,
-    var(--secondary-color-light) 100%
-  );
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-li {
-  list-style: none;
-}
-
-button {
-  height: 40px;
+.character {
   width: 200px;
-  font-size: 1rem;
-  font-weight: 600;
-  background: linear-gradient(
-    90deg,
-    var(--main-color) 0%,
-    var(--secondary-color) 50%,
-    var(--secondary-color-light) 100%
-  );
-  color: var(--text-primary);
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s;
-  box-shadow: 0 0 4px var(--main-color), 0 0 8px var(--secondary-color),
-    0 0 12px var(--secondary-color-light);
-  margin-right: 20px;
+  height: 250px;
+  filter: drop-shadow(0 0 4px black);
 }
