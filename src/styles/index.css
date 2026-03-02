@@ -17,8 +17,7 @@
   align-items: center;
 }
 
-.character {
-  width: 200px;
-  height: 250px;
-  filter: drop-shadow(0 0 4px black);
+.roomContainer {
+  width: 100vw;
+  height: 100vh;
 }

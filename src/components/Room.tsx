@@ -11,9 +11,9 @@ export default function Room({ debug }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const avatarRef = useRef<Avatar | null>(null);
   const keys = useKeyboard();
-
   const roomImage = useRef<HTMLImageElement | null>(null);
 
+  // Inicializar canvas, imagen y avatar solo una vez
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -26,14 +26,23 @@ export default function Room({ debug }: Props) {
 
     // Cargar imagen del cuarto
     roomImage.current = new Image();
-    roomImage.current.src = "/assets/room.png"; 
+    roomImage.current.src = "/assets/room.png";
 
-    // Crear avatar
+    // Crear avatar solo una vez
     avatarRef.current = new Avatar(
       canvas.width / 2,
       canvas.height / 2,
       "/assets/character.png",
     );
+  }, []);
+
+  // Game loop
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     let animationFrameId: number;
 

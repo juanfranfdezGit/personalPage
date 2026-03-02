@@ -14,8 +14,8 @@ export class Avatar {
     this.image = new Image();
     this.image.src = imageSrc;
 
-    this.width = 200;
-    this.height = 300;
+    this.width = 280;
+    this.height = 420;
   }
 
   update(keys: Record<string, boolean>) {
@@ -29,7 +29,7 @@ export class Avatar {
     ctx.save();
 
     ctx.shadowColor = "rgba(0,0,0,0.5)";
-    ctx.shadowBlur = 15;
+    ctx.shadowBlur = 8;
     ctx.shadowOffsetY = 10;
 
     ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
