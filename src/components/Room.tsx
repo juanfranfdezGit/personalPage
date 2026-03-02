@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Avatar } from "./Avatar";
 import { useKeyboard } from "../hooks/keyboard";
+import { useMouse } from "../hooks/mouse";
+import { renderScene } from "../render/SceneRender";
 
 interface Props {
   debug?: boolean;
@@ -12,8 +14,15 @@ export default function Room({ debug }: Props) {
   const avatarRef = useRef<Avatar | null>(null);
   const keys = useKeyboard();
   const roomImage = useRef<HTMLImageElement | null>(null);
+  const wallRef = useRef<HTMLImageElement | null>(null);
+  const floorRef = useRef<HTMLImageElement | null>(null);
+  const cityFarRef = useRef<HTMLImageElement | null>(null);
+  const cityMidRef = useRef<HTMLImageElement | null>(null);
+  const cityNearRef = useRef<HTMLImageElement | null>(null);
 
-  // Inicializar canvas, imagen y avatar solo una vez
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const parallaxRef = useRef({ x: 0, y: 0 });
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -24,19 +33,42 @@ export default function Room({ debug }: Props) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // Cargar imagen del cuarto
     roomImage.current = new Image();
-    roomImage.current.src = "/assets/room.png";
+    roomImage.current.src = "/assets/room/room.png";
 
-    // Crear avatar solo una vez
+    wallRef.current = new Image();
+    wallRef.current.src = "/assets/room/wall.png";
+
+    floorRef.current = new Image();
+    floorRef.current.src = "/assets/room/floor.png";
+
+    cityFarRef.current = new Image();
+    cityFarRef.current.src = "/assets/room/city_far.png";
+
+    cityMidRef.current = new Image();
+    cityMidRef.current.src = "/assets/room/city_mid.png";
+
+    cityNearRef.current = new Image();
+    cityNearRef.current.src = "/assets/room/city_near.png";
+
     avatarRef.current = new Avatar(
       canvas.width / 2,
       canvas.height / 2,
       "/assets/character.png",
     );
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseRef.current.x = e.clientX;
+      mouseRef.current.y = e.clientY;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
-  // Game loop
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -44,39 +76,35 @@ export default function Room({ debug }: Props) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationFrameId: number;
-
     const gameLoop = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
 
-      // Dibujar room
-      if (roomImage.current?.complete) {
-        ctx.drawImage(roomImage.current, 0, 0, canvas.width, canvas.height);
-      }
+      const targetX = (mouseRef.current.x - centerX) * 0.03;
+      const targetY = (mouseRef.current.y - centerY) * 0.03;
 
-      // Update avatar
+      parallaxRef.current.x += (targetX - parallaxRef.current.x) * 0.08;
+      parallaxRef.current.y += (targetY - parallaxRef.current.y) * 0.08;
+
+      renderScene(
+        ctx,
+        canvas,
+        {
+          wall: wallRef.current,
+          floor: floorRef.current,
+          cityFar: cityFarRef.current,
+          cityMid: cityMidRef.current,
+          cityNear: cityNearRef.current,
+        },
+        parallaxRef.current,
+      );
+
+      // Avatar siempre encima
       avatarRef.current?.update(keys);
-
-      // Draw avatar
       avatarRef.current?.draw(ctx);
-
-      // Debug
-      if (debug && avatarRef.current) {
-        ctx.strokeStyle = "red";
-        ctx.strokeRect(
-          avatarRef.current.x,
-          avatarRef.current.y,
-          avatarRef.current.width,
-          avatarRef.current.height,
-        );
-      }
-
-      animationFrameId = requestAnimationFrame(gameLoop);
     };
 
     gameLoop();
-
-    return () => cancelAnimationFrame(animationFrameId);
   }, [keys, debug]);
 
   return <canvas ref={canvasRef} style={{ display: "block" }} />;
