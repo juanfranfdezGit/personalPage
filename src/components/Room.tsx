@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Avatar } from "./Avatar";
 import { useKeyboard } from "../hooks/keyboard";
-import { renderScene } from "../render/SceneRender";
+import "../styles/room/room.css";
 
 interface Props {
   debug?: boolean;
@@ -11,37 +11,52 @@ interface Props {
 export default function Room({ debug }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const avatarRef = useRef<Avatar | null>(null);
+
+  const skyRef = useRef<HTMLImageElement | null>(null);
+  const windowRef = useRef<HTMLImageElement | null>(null);
   const wallRef = useRef<HTMLImageElement | null>(null);
   const floorRef = useRef<HTMLImageElement | null>(null);
-  const windowRef = useRef<HTMLImageElement | null>(null);
-  const skyRef = useRef<HTMLImageElement | null>(null);
+
   const mouseRef = useRef({ x: 0, y: 0 });
   const parallaxRef = useRef({ x: 0, y: 0 });
 
   const keys = useKeyboard();
 
+  // Carga de imágenes
   useEffect(() => {
-    const loadImage = (src: string) => {
-      return new Promise<HTMLImageElement>((resolve) => {
+    const loadImage = (src: string) =>
+      new Promise<HTMLImageElement>((resolve) => {
         const img = new Image();
         img.src = src;
         img.onload = () => resolve(img);
       });
-    };
 
     Promise.all([
-      loadImage("/assets/room/wall.png"),
-      loadImage("/assets/room/floor.png"),
       loadImage("/assets/room/sky.png"),
       loadImage("/assets/room/window.png"),
-    ]).then(([wall, floor, sky, window]) => {
-      wallRef.current = wall;
-      floorRef.current = floor;
+      loadImage("/assets/room/wall.png"),
+      loadImage("/assets/room/floor.png"),
+    ]).then(([sky, window, wall, floor]) => {
       skyRef.current = sky;
       windowRef.current = window;
+      wallRef.current = wall;
+      floorRef.current = floor;
     });
   }, []);
 
+  // Inicializar avatar
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    avatarRef.current = new Avatar(
+      canvas.width / 2,
+      canvas.height / 2,
+      "/assets/character.png",
+    );
+  }, []);
+
+  // Loop del avatar
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -52,22 +67,19 @@ export default function Room({ debug }: Props) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    avatarRef.current = new Avatar(
-      canvas.width / 2,
-      canvas.height / 2,
-      "/assets/character.png",
-    );
-
-    // Mouse
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current.x = e.clientX;
       mouseRef.current.y = e.clientY;
     };
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Game loop
     let animationFrameId: number;
+
     const gameLoop = () => {
+      // Limpiar solo canvas del avatar
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Parallax para el DOM (solo efecto, no dibuja nada en canvas)
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
 
@@ -77,21 +89,21 @@ export default function Room({ debug }: Props) {
       parallaxRef.current.x += (targetX - parallaxRef.current.x) * 0.08;
       parallaxRef.current.y += (targetY - parallaxRef.current.y) * 0.08;
 
-      renderScene(
-        ctx,
-        canvas,
-        {
-          wall: wallRef.current,
-          floor: floorRef.current,
-          sky: skyRef.current,
-          window: windowRef.current,
-        },
-        parallaxRef.current,
-      );
+      // Aplicar transform a DOM layers
+      if (skyRef.current)
+        skyRef.current.style.transform = `translate(${-parallaxRef.current.x * 0.2}px, ${-parallaxRef.current.y * 0.2}px)`;
+      if (windowRef.current)
+        windowRef.current.style.transform = `translate(${-parallaxRef.current.x}px, ${-parallaxRef.current.y}px)`;
+      if (wallRef.current)
+        wallRef.current.style.transform = `translate(${-parallaxRef.current.x + 30}px, ${-parallaxRef.current.y - 160}px)`;
+      if (floorRef.current)
+        floorRef.current.style.transform = `translate(${-parallaxRef.current.x}px, ${-parallaxRef.current.y}px)`;
 
+      // Actualizar avatar
       avatarRef.current?.update(keys);
       avatarRef.current?.draw(ctx);
 
+      // Debug
       if (debug && avatarRef.current) {
         ctx.strokeStyle = "red";
         ctx.strokeRect(
@@ -114,9 +126,17 @@ export default function Room({ debug }: Props) {
   }, [keys, debug]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      style={{ display: "block", width: "100vw", height: "100vh" }}
-    />
+    <div className="room">
+      {/* Capas DOM */}
+      <img ref={skyRef} className="sky" src="/assets/room/sky.png" />
+      <img ref={windowRef} className="window" src="/assets/room/window.png" />
+      <img ref={wallRef} className="wall" src="/assets/room/wall.png" />
+      <img ref={floorRef} className="floor" src="/assets/room/floor.png" />
+
+      <canvas
+        ref={canvasRef}
+        style={{ position: "absolute", inset: 0, zIndex: 4 }}
+      />
+    </div>
   );
 }

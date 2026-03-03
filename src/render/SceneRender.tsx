@@ -28,11 +28,11 @@ export function renderScene(
 
   // Ventana
   if (window?.complete) {
-    ctx.drawImage(window, -x, -y, canvas.width, canvas.height);
+    ctx.drawImage(window, -x - 250, -y, canvas.width, canvas.height - 200);
   }
   // Pared
   if (wall?.complete) {
-    ctx.drawImage(wall, -x * 0.8, -y * 0.8, canvas.width, canvas.height);
+    ctx.drawImage(wall, -x + 30, -y - 160, canvas.width, canvas.height);
   }
 
   // Suelo
