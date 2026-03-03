@@ -39,3 +39,39 @@
   filter: drop-shadow(0 0 10px black);
   z-index: 2;
 }
+
+.desk {
+  bottom: 15vh;
+  right: 15vw;
+  width: 18% !important;
+  height: 35% !important;
+  z-index: 4;
+  filter: drop-shadow(8px 10px 12px black);
+}
+
+.pc {
+  bottom: 39vh;
+  right: 22vw;
+  width: 8% !important;
+  height: 15% !important;
+  z-index: 5;
+  filter: drop-shadow(8px 10px 12px black);
+}
+
+.books {
+  bottom: 30vh;
+  right: 30vw;
+  width: 20% !important;
+  height: 40% !important;
+  z-index: 3;
+  filter: drop-shadow(8px 10px 12px black);
+}
+
+.books02 {
+  bottom: 30vh;
+  right: 88vw;
+  width: 10% !important;
+  height: 25% !important;
+  z-index: 3;
+  filter: drop-shadow(8px 10px 12px black);
+}

@@ -16,6 +16,10 @@ export default function Room({ debug }: Props) {
   const windowRef = useRef<HTMLImageElement | null>(null);
   const wallRef = useRef<HTMLImageElement | null>(null);
   const floorRef = useRef<HTMLImageElement | null>(null);
+  const deskRef = useRef<HTMLImageElement | null>(null);
+  const pcRef = useRef<HTMLImageElement | null>(null);
+  const booksRef = useRef<HTMLImageElement | null>(null);
+  const books02Ref = useRef<HTMLImageElement | null>(null);
 
   const mouseRef = useRef({ x: 0, y: 0 });
   const parallaxRef = useRef({ x: 0, y: 0 });
@@ -36,11 +40,19 @@ export default function Room({ debug }: Props) {
       loadImage("/assets/room/window.png"),
       loadImage("/assets/room/wall.png"),
       loadImage("/assets/room/floor.png"),
-    ]).then(([sky, window, wall, floor]) => {
+      loadImage("/assets/room/desk.png"),
+      loadImage("/assets/room/pc.png"),
+      loadImage("/assets/room/books.png"),
+      loadImage("/assets/room/books02.png"),
+    ]).then(([sky, window, wall, floor, desk, pc, books, books02]) => {
       skyRef.current = sky;
       windowRef.current = window;
       wallRef.current = wall;
       floorRef.current = floor;
+      deskRef.current = desk;
+      pcRef.current = pc;
+      booksRef.current = books;
+      books02Ref.current = books02;
     });
   }, []);
 
@@ -132,6 +144,10 @@ export default function Room({ debug }: Props) {
       <img ref={windowRef} className="window" src="/assets/room/window.png" />
       <img ref={wallRef} className="wall" src="/assets/room/wall.png" />
       <img ref={floorRef} className="floor" src="/assets/room/floor.png" />
+      <img ref={deskRef} className="desk" src="/assets/room/desk.png" />
+      <img ref={pcRef} className="pc" src="/assets/room/pc.png" />
+      <img ref={booksRef} className="books" src="/assets/room/books.png" />
+      <img ref={books02Ref} className="books02" src="/assets/room/books02.png" />
 
       <canvas
         ref={canvasRef}
