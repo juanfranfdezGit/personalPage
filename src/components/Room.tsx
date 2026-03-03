@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Avatar } from "./Avatar";
 import { useKeyboard } from "../hooks/keyboard";
-import { useMouse } from "../hooks/mouse";
 import { renderScene } from "../render/SceneRender";
 
 interface Props {
@@ -12,16 +11,36 @@ interface Props {
 export default function Room({ debug }: Props) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const avatarRef = useRef<Avatar | null>(null);
-  const keys = useKeyboard();
-  const roomImage = useRef<HTMLImageElement | null>(null);
   const wallRef = useRef<HTMLImageElement | null>(null);
   const floorRef = useRef<HTMLImageElement | null>(null);
-  const cityFarRef = useRef<HTMLImageElement | null>(null);
-  const cityMidRef = useRef<HTMLImageElement | null>(null);
-  const cityNearRef = useRef<HTMLImageElement | null>(null);
-
+  const windowRef = useRef<HTMLImageElement | null>(null);
+  const skyRef = useRef<HTMLImageElement | null>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const parallaxRef = useRef({ x: 0, y: 0 });
+
+  const keys = useKeyboard();
+
+  useEffect(() => {
+    const loadImage = (src: string) => {
+      return new Promise<HTMLImageElement>((resolve) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => resolve(img);
+      });
+    };
+
+    Promise.all([
+      loadImage("/assets/room/wall.png"),
+      loadImage("/assets/room/floor.png"),
+      loadImage("/assets/room/sky.png"),
+      loadImage("/assets/room/window.png"),
+    ]).then(([wall, floor, sky, window]) => {
+      wallRef.current = wall;
+      floorRef.current = floor;
+      skyRef.current = sky;
+      windowRef.current = window;
+    });
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -33,49 +52,21 @@ export default function Room({ debug }: Props) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    roomImage.current = new Image();
-    roomImage.current.src = "/assets/room/room.png";
-
-    wallRef.current = new Image();
-    wallRef.current.src = "/assets/room/wall.png";
-
-    floorRef.current = new Image();
-    floorRef.current.src = "/assets/room/floor.png";
-
-    cityFarRef.current = new Image();
-    cityFarRef.current.src = "/assets/room/city_far.png";
-
-    cityMidRef.current = new Image();
-    cityMidRef.current.src = "/assets/room/city_mid.png";
-
-    cityNearRef.current = new Image();
-    cityNearRef.current.src = "/assets/room/city_near.png";
-
     avatarRef.current = new Avatar(
       canvas.width / 2,
       canvas.height / 2,
       "/assets/character.png",
     );
 
+    // Mouse
     const handleMouseMove = (e: MouseEvent) => {
       mouseRef.current.x = e.clientX;
       mouseRef.current.y = e.clientY;
     };
-
     window.addEventListener("mousemove", handleMouseMove);
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
+    // Game loop
+    let animationFrameId: number;
     const gameLoop = () => {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
@@ -92,20 +83,40 @@ export default function Room({ debug }: Props) {
         {
           wall: wallRef.current,
           floor: floorRef.current,
-          cityFar: cityFarRef.current,
-          cityMid: cityMidRef.current,
-          cityNear: cityNearRef.current,
+          sky: skyRef.current,
+          window: windowRef.current,
         },
         parallaxRef.current,
       );
 
-      // Avatar siempre encima
       avatarRef.current?.update(keys);
       avatarRef.current?.draw(ctx);
+
+      if (debug && avatarRef.current) {
+        ctx.strokeStyle = "red";
+        ctx.strokeRect(
+          avatarRef.current.x,
+          avatarRef.current.y,
+          avatarRef.current.width,
+          avatarRef.current.height,
+        );
+      }
+
+      animationFrameId = requestAnimationFrame(gameLoop);
     };
 
     gameLoop();
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, [keys, debug]);
 
-  return <canvas ref={canvasRef} style={{ display: "block" }} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{ display: "block", width: "100vw", height: "100vh" }}
+    />
+  );
 }

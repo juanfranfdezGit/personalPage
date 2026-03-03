@@ -3,8 +3,6 @@
   src: "Sora", sans-serif;
 }
 
-@import url("./room/avatar.css");
-
 * {
   box-sizing: border-box;
   padding: 0;
