@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Avatar } from "./Avatar";
 import { useKeyboard } from "../hooks/keyboard";
 import "../styles/room/room.css";
+import { useDayNightCycle } from "./room/useDayNightCycle";
 
 interface Props {
   debug?: boolean;
@@ -20,6 +21,7 @@ export default function Room({ debug }: Props) {
   const pcRef = useRef<HTMLImageElement | null>(null);
   const booksRef = useRef<HTMLImageElement | null>(null);
   const books02Ref = useRef<HTMLImageElement | null>(null);
+  const ambientRef = useRef<HTMLImageElement | null>(null);
 
   const mouseRef = useRef({ x: 0, y: 0 });
   const parallaxRef = useRef({ x: 0, y: 0 });
@@ -137,22 +139,30 @@ export default function Room({ debug }: Props) {
     };
   }, [keys, debug]);
 
+  useDayNightCycle(ambientRef, 300000);
+
   return (
     <div className="room">
       {/* Capas DOM */}
-      <img ref={skyRef} className="sky" src="/assets/room/sky.png" />
+      <img ref={skyRef} className="sky" src="/assets/room/skyTest.png" />
       <img ref={windowRef} className="window" src="/assets/room/window.png" />
       <img ref={wallRef} className="wall" src="/assets/room/wall.png" />
       <img ref={floorRef} className="floor" src="/assets/room/floor.png" />
       <img ref={deskRef} className="desk" src="/assets/room/desk.png" />
       <img ref={pcRef} className="pc" src="/assets/room/pc.png" />
       <img ref={booksRef} className="books" src="/assets/room/books.png" />
-      <img ref={books02Ref} className="books02" src="/assets/room/books02.png" />
+      <img
+        ref={books02Ref}
+        className="books02"
+        src="/assets/room/books02.png"
+      />
 
       <canvas
         ref={canvasRef}
         style={{ position: "absolute", inset: 0, zIndex: 4 }}
       />
+
+      <div ref={ambientRef} className="ambient-light" />
     </div>
   );
 }

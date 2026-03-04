@@ -13,9 +13,12 @@
 }
 
 .sky {
-  top: -15vh;
-  left: 0;
+  height: 500% !important;
+  width: 250% !important;
+  top: -35vh;
+  left: -80vw;
   z-index: 0;
+  animation: rotate 300s linear infinite;
 }
 
 .window {
@@ -74,4 +77,22 @@
   height: 25% !important;
   z-index: 3;
   filter: drop-shadow(8px 10px 12px black);
+}
+
+.ambient-light {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 200, 150, 0); /* inicial transparente */
+  pointer-events: none; /* para que no bloquee el mouse */
+  z-index: 15; /* encima del canvas y debajo del avatar si quieres */
+  transition: background-color 0.2s linear; /* suaviza cambios */
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(40deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
