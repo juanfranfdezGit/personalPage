@@ -46,6 +46,7 @@ function App() {
           top: 20,
           right: 20,
           padding: "8px 12px",
+          zIndex: 20,
         }}
       >
         Debug: {debug ? "ON" : "OFF"}

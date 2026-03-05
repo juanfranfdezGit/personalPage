@@ -44,38 +44,11 @@
 }
 
 .desk {
-  bottom: 15vh;
-  right: 15vw;
-  width: 18% !important;
-  height: 35% !important;
+  bottom: 30vh;
+  right: 33vw;
+  width: 28% !important;
+  height: 42% !important;
   z-index: 4;
-  filter: drop-shadow(8px 10px 12px black);
-}
-
-.pc {
-  bottom: 39vh;
-  right: 22vw;
-  width: 8% !important;
-  height: 15% !important;
-  z-index: 5;
-  filter: drop-shadow(8px 10px 12px black);
-}
-
-.books {
-  bottom: 30vh;
-  right: 30vw;
-  width: 20% !important;
-  height: 40% !important;
-  z-index: 3;
-  filter: drop-shadow(8px 10px 12px black);
-}
-
-.books02 {
-  bottom: 30vh;
-  right: 88vw;
-  width: 10% !important;
-  height: 25% !important;
-  z-index: 3;
   filter: drop-shadow(8px 10px 12px black);
 }
 
@@ -86,6 +59,30 @@
   pointer-events: none; /* para que no bloquee el mouse */
   z-index: 15; /* encima del canvas y debajo del avatar si quieres */
   transition: background-color 0.2s linear; /* suaviza cambios */
+}
+
+.desk-ui {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  padding: 2rem 4rem;
+  background: white;
+}
+
+.press-e {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  z-index: 20;
 }
 
 @keyframes rotate {
