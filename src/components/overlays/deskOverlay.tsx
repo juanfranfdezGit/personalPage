@@ -41,6 +41,10 @@ export default function DeskOverlay() {
 
   return (
     <>
+      <p className="exitPC">
+        <span>ESC</span> para cerrar
+      </p>
+
       <section className="mockup">
         <img src="/assets/room/monitor.jpg" alt="monitor" />
 

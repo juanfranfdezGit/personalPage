@@ -35,8 +35,8 @@
 }
 
 .wall {
-  top: -17vh;
-  left: -1.8vw;
+  top: -27vh;
+  left: 0vw;
   width: 103% !important;
   height: 130% !important;
   filter: drop-shadow(0 0 10px black);
@@ -52,13 +52,17 @@
   filter: drop-shadow(8px 10px 12px black);
 }
 
+.desk.near {
+  filter: drop-shadow(8px 10px 12px rgb(207, 177, 7));
+}
+
 .ambient-light {
   position: absolute;
   inset: 0;
-  background-color: rgba(255, 200, 150, 0); /* inicial transparente */
-  pointer-events: none; /* para que no bloquee el mouse */
-  z-index: 15; /* encima del canvas y debajo del avatar si quieres */
-  transition: background-color 0.2s linear; /* suaviza cambios */
+  background-color: rgba(255, 200, 150, 0);
+  pointer-events: none;
+  z-index: 15; 
+  transition: background-color 0.2s linear; 
 }
 
 .desk-ui {

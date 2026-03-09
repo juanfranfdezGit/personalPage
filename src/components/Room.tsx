@@ -4,7 +4,7 @@ import { useInitAvatar } from "./hooks/useInitAvatar";
 import { useRoomLoop } from "./hooks/useLoop";
 import { useDayNightCycle } from "./hooks/useDayNightCycle";
 import { useInteraction } from "./hooks/useInteractions";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "../styles/room/room.css";
 import DeskOverlay from "./overlays/deskOverlay";
 
@@ -16,6 +16,23 @@ export default function Room({ debug }: { debug?: boolean }) {
 
   const ambientRef = useRef<HTMLDivElement | null>(null);
   const [deskOpen, setDeskOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setDeskOpen(false);
+        // Aquí puedes cerrar otras ventanas en el futuro
+        // setInventoryOpen(false)
+        // setMapOpen(false)
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   useRoomLoop(
     canvasRef,
@@ -46,7 +63,7 @@ export default function Room({ debug }: { debug?: boolean }) {
       <img ref={windowRef} className="window" src="/assets/room/window.png" />
       <img ref={wallRef} className="wall" src="/assets/room/wall.png" />
       <img ref={floorRef} className="floor" src="/assets/room/floor.png" />
-      <img ref={deskRef} className="desk" src="/assets/room/desk.png" />
+      <img ref={deskRef} className={`desk ${isNear ? "near" : ""}`} src="/assets/room/desk.png" />
 
       <canvas
         ref={canvasRef}

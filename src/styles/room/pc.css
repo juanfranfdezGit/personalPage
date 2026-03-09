@@ -94,13 +94,11 @@ img.project {
 }
 
 .browser {
-  width: 80%;
-  height: 80%;
+  width: 98%;
+  height: 92%;
   position: absolute;
-  top: 10%;
-  left: 10%;
-  background: white;
-  border-radius: 8px;
+  top: 1.5%;
+  left: 1%;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   z-index: 30;
@@ -108,31 +106,60 @@ img.project {
 
 .browser-bar {
   height: 40px;
-  background: #e4e4e4;
+  background: #3b3b3b;
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 2rem 2rem;
   justify-content: space-between;
+}
+
+.browser-bar img {
+  width: 32px;
+  height: 32px;
+  position: relative;
 }
 
 .browser-bar input {
   width: 90%;
   border: none;
-  background: transparent;
+  padding: .5rem 2rem;
+  background: #4e4e4e;
+  border-radius: 12px;
 }
 
 .close-btn {
   background: #ff5f57;
   color: white;
   border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  font-size: 12px;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  padding-bottom: 4px;
   display: flex;
   align-items: center;
+  text-transform: uppercase;
   justify-content: center;
 }
 
 .close-btn:hover {
   background: #ff3b30;
+  cursor: pointer;
+}
+
+.exitPC {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  color: white;
+  font-family: sans-serif;
+  z-index: 255;
+  font-size: 2rem;
+}
+
+.exitPC span {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  border-radius: 4px;
 }

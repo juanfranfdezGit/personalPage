@@ -9,6 +9,9 @@ export default function OpenProject({ url, onClose }: OpenProjectProps) {
       <div className="browser-bar">
         <input value={url} readOnly />
 
+        <img src="/assets/icos/user.png" alt="user" />
+        <img src="/assets/icos/download.png" alt="user" />
+
         <button className="close-btn" onClick={onClose}>
           ✕
         </button>
