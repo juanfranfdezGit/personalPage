@@ -1,0 +1,12 @@
+.bookshelf-mockup {
+  width: 70vw;
+  height: 84.5vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px black;
+}

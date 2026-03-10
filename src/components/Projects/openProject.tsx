@@ -1,9 +1,16 @@
 interface OpenProjectProps {
   url: string;
+  device?: "desktop" | "mobile";
   onClose: () => void;
 }
 
-export default function OpenProject({ url, onClose }: OpenProjectProps) {
+export default function OpenProject({
+  url,
+  onClose,
+  device,
+}: OpenProjectProps) {
+  const isMobile = device === "mobile";
+
   return (
     <div className="browser">
       <div className="browser-bar">
@@ -17,13 +24,18 @@ export default function OpenProject({ url, onClose }: OpenProjectProps) {
         </button>
       </div>
 
-      <iframe
-        src={url}
-        title="Project"
-        width="100%"
-        height="100%"
-        style={{ border: "none" }}
-      />
+      <div className={isMobile ? "mobile-mockup" : "desktop-view"}>
+        <iframe
+          src={url}
+          title="Project"
+          style={{
+            border: "none",
+            width: "100%",
+            height: "100%",
+            ...(isMobile ? { borderRadius: "20px" } : {}),
+          }}
+        />
+      </div>
     </div>
   );
 }

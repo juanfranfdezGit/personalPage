@@ -43,12 +43,14 @@ export function useInteraction({
       // Escala CSS -> canvas
       const scaleX = canvas.width / canvasRect.width;
       const scaleY = canvas.height / canvasRect.height;
+      const paddingX = elementRect.width * 0.15; 
+      const paddingY = elementRect.height * 0.40;
 
       hitboxRef.current = {
-        x: (elementRect.left - canvasRect.left) * scaleX,
-        y: (elementRect.top - canvasRect.top) * scaleY,
-        width: elementRect.width * scaleX,
-        height: elementRect.height * scaleY,
+        x: (elementRect.left - canvasRect.left) * scaleX + paddingX * scaleX,
+        y: (elementRect.top - canvasRect.top) * scaleY + paddingY * scaleY,
+        width: (elementRect.width - 2 * paddingX) * scaleX,
+        height: (elementRect.height - 2 * paddingY) * scaleY,
       };
     };
 

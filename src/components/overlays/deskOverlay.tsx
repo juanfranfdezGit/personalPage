@@ -10,34 +10,40 @@ export default function DeskOverlay() {
       name: "Pokemon Duels!",
       image: "/assets/icos/pok.png",
       url: "https://pokemon-duels.vercel.app/",
+      device: "desktop",
     },
     {
       id: 2,
       name: "Los Archivos de Hoid",
       image: "/assets/icos/hoid.png",
       url: "https://losarchivosdehoid.vercel.app/",
+      device: "desktop",
     },
     {
       id: 3,
       name: "Virtual Life",
       image: "/assets/icos/virtual.webp",
       url: "https://virtual-life.vercel.app/",
+      device: "desktop",
     },
     {
       id: 4,
       name: "24 Apex Lab",
       image: "/assets/icos/24apex.png",
       url: "https://24apexlab.vercel.app/",
+      device: "desktop",
     },
     {
       id: 5,
       name: "Warhammer Campaign",
       image: "/assets/icos/warh.jfif",
       url: "https://warhammer-campaign.vercel.app/",
+      device: "mobile",
     },
   ];
 
   const [activeUrl, setActiveUrl] = useState<string | null>(null);
+  const [activeDevice, setActiveDevice] = useState<string | null>(null);
 
   return (
     <>
@@ -55,7 +61,10 @@ export default function DeskOverlay() {
             <div
               key={p.id}
               className="project-item"
-              onClick={() => setActiveUrl(p.url)}
+              onClick={() => {
+                setActiveUrl(p.url);
+                setActiveDevice(p.device);
+              }}
             >
               <img src={p.image} alt={p.name} />
               <p>{p.name}</p>
@@ -68,7 +77,11 @@ export default function DeskOverlay() {
         </div>
 
         {activeUrl && (
-          <OpenProject url={activeUrl} onClose={() => setActiveUrl(null)} />
+          <OpenProject
+            url={activeUrl}
+            device={activeDevice as "desktop" | "mobile"}
+            onClose={() => setActiveUrl(null)}
+          />
         )}
       </section>
     </>

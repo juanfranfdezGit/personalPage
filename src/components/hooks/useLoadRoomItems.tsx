@@ -6,9 +6,9 @@ export function useLoadRoomItems() {
   const wallRef = useRef<HTMLImageElement | null>(null);
   const floorRef = useRef<HTMLImageElement | null>(null);
   const deskRef = useRef<HTMLImageElement | null>(null);
-  const pcRef = useRef<HTMLImageElement | null>(null);
-  const booksRef = useRef<HTMLImageElement | null>(null);
-  const books02Ref = useRef<HTMLImageElement | null>(null);
+  const topDeskRef = useRef<HTMLImageElement | null>(null);
+  const pokePixelRef = useRef<HTMLImageElement | null>(null);
+  const bookShelfRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     const loadImage = (src: string) =>
@@ -24,19 +24,21 @@ export function useLoadRoomItems() {
       loadImage("/assets/room/wall.png"),
       loadImage("/assets/room/floor.png"),
       loadImage("/assets/room/desk.png"),
-      loadImage("/assets/room/pc.png"),
-      loadImage("/assets/room/books.png"),
-      loadImage("/assets/room/books02.png"),
-    ]).then(([sky, window, wall, floor, desk, pc, books, books02]) => {
-      skyRef.current = sky;
-      windowRef.current = window;
-      wallRef.current = wall;
-      floorRef.current = floor;
-      deskRef.current = desk;
-      pcRef.current = pc;
-      booksRef.current = books;
-      books02Ref.current = books02;
-    });
+      loadImage("/assets/room/topDesk.png"),
+      loadImage("/assets/room/pokePixel.png"),
+      loadImage("/assets/room/bookShelf.png"),
+    ]).then(
+      ([sky, window, wall, floor, desk, topDesk, pokePixel, bookShelf]) => {
+        skyRef.current = sky;
+        windowRef.current = window;
+        wallRef.current = wall;
+        floorRef.current = floor;
+        deskRef.current = desk;
+        topDeskRef.current = topDesk;
+        pokePixelRef.current = pokePixel;
+        bookShelfRef.current = bookShelf;
+      },
+    );
   }, []);
 
   return {
@@ -45,8 +47,8 @@ export function useLoadRoomItems() {
     wallRef,
     floorRef,
     deskRef,
-    pcRef,
-    booksRef,
-    books02Ref,
+    topDeskRef,
+    pokePixelRef,
+    bookShelfRef,
   };
 }

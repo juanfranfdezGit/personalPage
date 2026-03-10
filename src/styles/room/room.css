@@ -44,16 +44,50 @@
 }
 
 .desk {
-  bottom: 30vh;
-  right: 33vw;
+  bottom: 29vh;
+  right: 33.5vw;
   width: 28% !important;
   height: 42% !important;
   z-index: 4;
   filter: drop-shadow(8px 10px 12px black);
+  transform: rotate(1deg);
 }
 
 .desk.near {
   filter: drop-shadow(8px 10px 12px rgb(207, 177, 7));
+}
+
+.top-desk {
+  bottom: 60vh;
+  right: 44.5vw;
+  width: 18% !important;
+  height: 32% !important;
+  z-index: 4;
+  transform: rotate(-4deg);
+}
+
+.bookshelf {
+  bottom: 6vh;
+  right: 5vw;
+  width: 25% !important;
+  height: 58% !important;
+  z-index: 4;
+  filter: drop-shadow(8px 10px 12px black);
+  transform: rotate(-3deg);
+}
+
+.bookshelf.near {
+  filter: drop-shadow(8px 10px 12px rgb(207, 177, 7));
+}
+
+.poke-pixel {
+  bottom: 71.5vh;
+  right: 54.5vw;
+  width: 4% !important;
+  height: 8% !important;
+  z-index: 4;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 0 4px black);
 }
 
 .ambient-light {
@@ -61,8 +95,8 @@
   inset: 0;
   background-color: rgba(255, 200, 150, 0);
   pointer-events: none;
-  z-index: 15; 
-  transition: background-color 0.2s linear; 
+  z-index: 15;
+  transition: background-color 0.2s linear;
 }
 
 .desk-ui {
@@ -87,6 +121,22 @@
   font-family: Arial, sans-serif;
   font-size: 16px;
   z-index: 20;
+}
+
+.desktop-view {
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-mockup {
+  position: relative;
+  width: 410px;
+  height: 860px;
+  box-shadow: 0 0 12px black;
+  margin: 1rem auto;
+  border: 20px solid black;
+  border-radius: 32px;
+  background: black;
 }
 
 @keyframes rotate {

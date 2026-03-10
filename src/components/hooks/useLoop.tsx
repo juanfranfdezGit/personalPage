@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 export function useRoomLoop(
   canvasRef: React.RefObject<HTMLCanvasElement | null>,
@@ -9,6 +9,9 @@ export function useRoomLoop(
   windowRef: React.RefObject<HTMLImageElement | null>,
   wallRef: React.RefObject<HTMLImageElement | null>,
   floorRef: React.RefObject<HTMLImageElement | null>,
+  topDeskRef: React.RefObject<HTMLImageElement | null>,
+  pokePixel: React.RefObject<HTMLImageElement | null>,
+  bookShelf: React.RefObject<HTMLImageElement | null>,
 ) {
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -47,5 +50,17 @@ export function useRoomLoop(
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [canvasRef, avatarRef, keys, debug, skyRef, windowRef, wallRef, floorRef]);
+  }, [
+    canvasRef,
+    avatarRef,
+    keys,
+    debug,
+    skyRef,
+    windowRef,
+    wallRef,
+    floorRef,
+    topDeskRef,
+    pokePixel,
+    bookShelf,
+  ]);
 }

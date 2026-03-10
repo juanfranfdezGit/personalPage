@@ -7,20 +7,32 @@ import { useInteraction } from "./hooks/useInteractions";
 import { useRef, useState, useEffect } from "react";
 import "../styles/room/room.css";
 import DeskOverlay from "./overlays/deskOverlay";
+import BookshelfOverlay from "./overlays/bookshelfOverlay";
 
 export default function Room({ debug }: { debug?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const keys = useKeyboard();
-  const { skyRef, windowRef, wallRef, floorRef, deskRef } = useLoadRoomItems();
+  const {
+    skyRef,
+    windowRef,
+    wallRef,
+    floorRef,
+    deskRef,
+    topDeskRef,
+    pokePixelRef,
+    bookShelfRef,
+  } = useLoadRoomItems();
   const avatarRef = useInitAvatar(canvasRef);
 
   const ambientRef = useRef<HTMLDivElement | null>(null);
   const [deskOpen, setDeskOpen] = useState(false);
+  const [bookShelfOpen, setBookShelfOpen] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setDeskOpen(false);
+        setBookShelfOpen(false);
         // Aquí puedes cerrar otras ventanas en el futuro
         // setInventoryOpen(false)
         // setMapOpen(false)
@@ -43,16 +55,29 @@ export default function Room({ debug }: { debug?: boolean }) {
     windowRef,
     wallRef,
     floorRef,
+    topDeskRef,
+    pokePixelRef,
+    bookShelfRef,
   );
 
   useDayNightCycle(ambientRef, 300000);
 
-  const { isNear } = useInteraction({
+  const { isNear: isNearDesk } = useInteraction({
     elementRef: deskRef,
     avatarRef,
     keys,
     triggerKey: "e",
     onInteract: () => setDeskOpen(true),
+    canvasRef,
+    debug,
+  });
+
+  const { isNear: isNearBookshelf } = useInteraction({
+    elementRef: bookShelfRef,
+    avatarRef,
+    keys,
+    triggerKey: "e",
+    onInteract: () => setBookShelfOpen(true),
     canvasRef,
     debug,
   });
@@ -63,7 +88,26 @@ export default function Room({ debug }: { debug?: boolean }) {
       <img ref={windowRef} className="window" src="/assets/room/window.png" />
       <img ref={wallRef} className="wall" src="/assets/room/wall.png" />
       <img ref={floorRef} className="floor" src="/assets/room/floor.png" />
-      <img ref={deskRef} className={`desk ${isNear ? "near" : ""}`} src="/assets/room/desk.png" />
+      <img
+        ref={deskRef}
+        className={`desk ${isNearDesk ? "near" : ""}`}
+        src="/assets/room/desk.png"
+      />
+      <img
+        ref={topDeskRef}
+        className="top-desk"
+        src="/assets/room/topDesk.png"
+      />
+      <img
+        ref={pokePixelRef}
+        className="poke-pixel"
+        src="/assets/room/pokePixel.png"
+      />
+      <img
+        ref={bookShelfRef}
+        className={`bookshelf ${isNearBookshelf ? "near" : ""}`}
+        src="/assets/room/bookShelf.png"
+      />
 
       <canvas
         ref={canvasRef}
@@ -72,9 +116,14 @@ export default function Room({ debug }: { debug?: boolean }) {
 
       <div ref={ambientRef} className="ambient-light" />
 
-      {isNear && !deskOpen && <div className="press-e">Press E</div>}
+      {isNearDesk && !deskOpen && <div className="press-e">Press E</div>}
+
+      {isNearBookshelf && !bookShelfOpen && (
+        <div className="press-e">Press E</div>
+      )}
 
       {deskOpen && <DeskOverlay />}
+      {bookShelfOpen && <BookshelfOverlay />}
     </div>
   );
 }
