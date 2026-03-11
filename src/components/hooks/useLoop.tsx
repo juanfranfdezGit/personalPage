@@ -12,6 +12,8 @@ export function useRoomLoop(
   topDeskRef: React.RefObject<HTMLImageElement | null>,
   pokePixel: React.RefObject<HTMLImageElement | null>,
   bookShelf: React.RefObject<HTMLImageElement | null>,
+  carpet: React.RefObject<HTMLImageElement | null>,
+  board: React.RefObject<HTMLImageElement | null>,
 ) {
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -62,5 +64,7 @@ export function useRoomLoop(
     topDeskRef,
     pokePixel,
     bookShelf,
+    carpet,
+    board,
   ]);
 }

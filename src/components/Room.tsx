@@ -21,6 +21,8 @@ export default function Room({ debug }: { debug?: boolean }) {
     topDeskRef,
     pokePixelRef,
     bookShelfRef,
+    carpetRef,
+    boardRef,
   } = useLoadRoomItems();
   const avatarRef = useInitAvatar(canvasRef);
 
@@ -58,6 +60,8 @@ export default function Room({ debug }: { debug?: boolean }) {
     topDeskRef,
     pokePixelRef,
     bookShelfRef,
+    carpetRef,
+    boardRef,
   );
 
   useDayNightCycle(ambientRef, 300000);
@@ -106,8 +110,10 @@ export default function Room({ debug }: { debug?: boolean }) {
       <img
         ref={bookShelfRef}
         className={`bookshelf ${isNearBookshelf ? "near" : ""}`}
-        src="/assets/room/bookShelf.png"
+        src="/assets/room/bookshelf.png"
       />
+      <img ref={carpetRef} className="carpet" src="/assets/room/carpet.png" />
+      <img ref={boardRef} className="board" src="/assets/room/board.png" />
 
       <canvas
         ref={canvasRef}

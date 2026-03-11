@@ -9,6 +9,8 @@ export function useLoadRoomItems() {
   const topDeskRef = useRef<HTMLImageElement | null>(null);
   const pokePixelRef = useRef<HTMLImageElement | null>(null);
   const bookShelfRef = useRef<HTMLImageElement | null>(null);
+  const carpetRef = useRef<HTMLImageElement | null>(null);
+  const boardRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     const loadImage = (src: string) =>
@@ -27,8 +29,21 @@ export function useLoadRoomItems() {
       loadImage("/assets/room/topDesk.png"),
       loadImage("/assets/room/pokePixel.png"),
       loadImage("/assets/room/bookShelf.png"),
+      loadImage("/assets/room/carpet.png"),
+      loadImage("/assets/room/board.png"),
     ]).then(
-      ([sky, window, wall, floor, desk, topDesk, pokePixel, bookShelf]) => {
+      ([
+        sky,
+        window,
+        wall,
+        floor,
+        desk,
+        topDesk,
+        pokePixel,
+        bookShelf,
+        carpet,
+        board,
+      ]) => {
         skyRef.current = sky;
         windowRef.current = window;
         wallRef.current = wall;
@@ -37,6 +52,8 @@ export function useLoadRoomItems() {
         topDeskRef.current = topDesk;
         pokePixelRef.current = pokePixel;
         bookShelfRef.current = bookShelf;
+        carpetRef.current = carpet;
+        boardRef.current = board;
       },
     );
   }, []);
@@ -50,5 +67,7 @@ export function useLoadRoomItems() {
     topDeskRef,
     pokePixelRef,
     bookShelfRef,
+    carpetRef,
+    boardRef,
   };
 }

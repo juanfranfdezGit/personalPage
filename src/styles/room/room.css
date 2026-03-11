@@ -60,29 +60,44 @@
 .top-desk {
   bottom: 60vh;
   right: 44.5vw;
-  width: 18% !important;
+  width: 17% !important;
   height: 32% !important;
   z-index: 4;
-  transform: rotate(-4deg);
 }
 
 .bookshelf {
-  bottom: 6vh;
-  right: 5vw;
+  bottom: 9vh;
+  right: 7vw;
   width: 25% !important;
   height: 58% !important;
   z-index: 4;
   filter: drop-shadow(8px 10px 12px black);
-  transform: rotate(-3deg);
+  transform: rotate(1deg);
 }
 
 .bookshelf.near {
   filter: drop-shadow(8px 10px 12px rgb(207, 177, 7));
 }
 
+.carpet {
+  bottom: 2vh;
+  right: 28vw;
+  width: 22% !important;
+  height: 26% !important;
+  z-index: 3;
+}
+
+.board {
+  bottom: 54vh;
+  right: 29vw;
+  width: 14% !important;
+  height: 32% !important;
+  z-index: 3;
+}
+
 .poke-pixel {
-  bottom: 71.5vh;
-  right: 54.5vw;
+  bottom: 72.5vh;
+  right: 50.7vw;
   width: 4% !important;
   height: 8% !important;
   z-index: 4;
