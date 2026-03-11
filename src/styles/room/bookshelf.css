@@ -1,5 +1,5 @@
 .bookshelf-mockup {
-  width: 70vw;
+  width: 57vw;
   height: 84.5vh;
   position: absolute;
   top: 50%;
@@ -9,4 +9,120 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 0 20px black;
+}
+
+.bookshelf-index {
+  z-index: 5;
+  position: relative;
+  left: 5vw;
+  top: 4vh;
+}
+
+.bookshelf-index h2 {
+  font-size: 3.2rem;
+}
+
+.bookshelf-index ul {
+  list-style: none;
+  padding: 0.5rem 1rem;
+}
+
+.bookshelf-index ul li {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.bookshelf-about {
+  display: none;
+  z-index: 5;
+  position: absolute;
+  right: 5vw;
+  top: 4vh;
+  font-size: 1.5rem;
+  max-width: 20vw;
+}
+
+.bookshelf-about h2 {
+  font-size: 2.7rem;
+}
+
+.bookshelf-about p {
+  margin: 1rem 0;
+  line-height: 1.4;
+}
+
+.bookshelf-about.active {
+  display: block;
+}
+
+.bookshelf-exp {
+  display: none;
+  z-index: 5;
+  position: absolute;
+  right: 5vw;
+  top: 4vh;
+  font-size: 1.5rem;
+  max-width: 20vw;
+}
+
+.bookshelf-exp h2 {
+  font-size: 2.7rem;
+}
+
+.bookshelf-exp ul {
+  list-style: none;
+  padding: 0.5rem 1rem;
+}
+
+.bookshelf-exp ul li {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.bookshelf-exp.active {
+  display: block;
+}
+
+.postBTN {
+  position: absolute;
+  bottom: 4vh;
+  right: 1vw;
+  transform: translateX(-50%);
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.antBTN {
+  position: absolute;
+  bottom: 4vh;
+  left: 9vw;
+  transform: translateX(-50%);
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.leftNum {
+  position: absolute;
+  bottom: 5vh;
+  left: 16vw;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.rightNum {
+  position: absolute;
+  bottom: 5vh;
+  right: 15vw;
+  font-weight: 700;
+  font-size: 1.3rem;
 }

@@ -85,6 +85,7 @@
   width: 22% !important;
   height: 26% !important;
   z-index: 3;
+  filter: drop-shadow(0 0 4px black);
 }
 
 .board {
@@ -93,6 +94,7 @@
   width: 14% !important;
   height: 32% !important;
   z-index: 3;
+  filter: drop-shadow(8px 10px 12px black);
 }
 
 .poke-pixel {
