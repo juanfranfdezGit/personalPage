@@ -111,33 +111,15 @@
   }
 }
 
-@keyframes pageBack {
-  0% {
-    transform: rotateY(-180deg);
-    z-index: var(--initial-z);
-  }
-  99% {
-    z-index: var(--initial-z);
-  }
-  100% {
-    transform: rotateY(0deg);
-    z-index: calc(-1 * var(--initial-z));
-  }
-}
-
 /* Animaciones de cada página */
 .page.next {
   animation: pageNext 1s ease-in-out forwards;
 }
 
-.page.back {
-  animation: pageBack 1s ease-in-out forwards;
-}
-
 .pageBtn {
   position: absolute;
   z-index: 10;
-  left: 33vw;
+  left: 60vw;
   bottom: 3vh;
   padding: 8px 16px;
   max-width: 200px;
@@ -146,11 +128,6 @@
   color: white;
   border-radius: 12px;
   cursor: pointer;
-}
-
-.pageBtn.nextPage {
-  left: 60vw;
-  bottom: 3vh;
 }
 
 .pageBtn.disabled {
