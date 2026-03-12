@@ -1,0 +1,17 @@
+ul {
+    list-style: none;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+p {
+    color: #333;
+    font-size: 1.5rem;
+}
+
+h2 {
+    color: #111;
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}

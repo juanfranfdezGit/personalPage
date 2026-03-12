@@ -1,32 +1,19 @@
 import "../../styles/room/bookshelf.css";
 import "../../styles/index.css";
 import { useState } from "react";
+import Skills from "./bookComponents/skills";
+import About from "./bookComponents/about";
+import Experience from "./bookComponents/experience";
+import BookIndex from "./bookComponents/bookIndex";
 
 export default function BookshelfOverlay() {
-  const techs = [
-    {
-      id: 1,
-      name: "React",
-      level: 5,
-      description:
-        "Biblioteca de JavaScript para construir interfaces de usuario.",
-      projects: "Proyecto de portafolio, proyecto de e-commerce",
-      image: "/assets/icos/react.png",
-    },
-  ];
+  const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState("next");
 
-  const [page, setPage] = useState(1);
-
-  const antPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
-  };
-
-  const nextPage = () => {
-    if (page < techs.length) {
-      setPage(page + 1);
-    }
+  const getPageClass = (index) => {
+    if (direction === "next" && page > index) return "next";
+    if (direction === "back" && page <= index) return "back";
+    return "";
   };
 
   return (
@@ -35,71 +22,66 @@ export default function BookshelfOverlay() {
         <span>ESC</span> para cerrar
       </p>
 
-      <section className="bookshelf-mockup">
-        <img src="/assets/book/openBook.png" alt="open book" />
+      <button
+        className={`pageBtn ${page > 0 ? "" : "disabled"}`}
+        onClick={() => {
+          if (page > 0) {
+            setDirection("back");
+            setPage(page - 1);
+          }
+        }}
+      >
+        Volver Página
+      </button>
 
-        <span className="leftNum">{page}</span>
-        <span className="rightNum">{page + 1}</span>
+      <button
+        className={`pageBtn nextPage ${page < 4 ? "" : "disabled"}`}
+        onClick={() => {
+          if (page < 4) {
+            setDirection("next");
+            setPage(page + 1);
+          }
+        }}
+      >
+        Pasar Página
+      </button>
 
-        <button className="postBTN" onClick={nextPage}>
-          Pasar Página →
-        </button>
+      <section className="bookContainer">
+        <div className="book">
+          {/* Portada */}
+          <div className={`page ${getPageClass(0)}`}>
+            <div className="front front-cover"></div>
+            <div className="back back-contra-portrait"></div>
+          </div>
 
-        <div className="bookshelf-index">
-          <h2>Indice</h2>
-          <ul>
-            <li>Sobre Mi</li>
-            <li>Experiencia</li>
-            <li>Skills Tecnicas</li>
-            <li>Soft Skills</li>
-          </ul>
+          {/* Página 1 */}
+          <div className={`page ${getPageClass(1)}`}>
+            <div className="front front-2">
+              <BookIndex />
+            </div>
+            <div className="back back-2">
+              <About />
+            </div>
+          </div>
+
+          {/* Página 2 */}
+          <div className={`page ${getPageClass(2)}`}>
+            <div className="front front-3">
+              <Skills />
+            </div>
+            <div className="back back-3">
+              <Experience />
+            </div>
+          </div>
+
+          {/* Página 3 */}
+          <div className={`page ${getPageClass(3)}`}>
+            <div className="front front-4">
+              <Skills />
+            </div>
+            <div className="back back-4"></div>
+          </div>
         </div>
-
-        <div className="bookshelf-about">
-          <h2>Sobre Mi</h2>
-          <p>
-            Soy desarrollador web full-stack, con experiencia en HTML, CSS,
-            JavaScript, React, Angular, Astro, NodeJS, SQL. Además, cuento con
-            formación en diseño gráfico, UX/UI y SEO técnico, lo que me permite
-            ofrecer soluciones web completas, optimizadas para rendimiento y
-            usabilidad.
-          </p>
-          <p>
-            He trabajado en proyectos de desarrollo y diseño tanto como
-            desarrollador web en Impacto SEO como full stack freelance, donde he
-            creado y optimizado sitios web adaptables y centrados en la
-            experiencia del usuario. Me apasiona aprender nuevas tecnologías y
-            contribuir a proyectos desafiantes.
-          </p>
-        </div>
-
-        <div className="bookshelf-exp">
-          <h2>Experiencia</h2>
-          <ul>
-            <li>
-              <h3>Impacto SEO</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-                nostrum, quo, similique ad ipsam obcaecati dignissimos corrupti
-                eaque molestias nemo saepe officia. Soluta vero sed nam dolorem?
-                Doloribus, earum aut?
-              </p>
-            </li>
-            <li>
-              <h3>Freelance</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-                nostrum, quo, similique ad ipsam obcaecati dignissimos corrupti
-                eaque molestias nemo saepe officia. Soluta vero sed nam dolorem?
-                Doloribus, earum aut?
-              </p>
-            </li>
-          </ul>
-        </div>
-
-        <button className="antBTN" onClick={antPage}>
-          ← Página Anterior
-        </button>
       </section>
     </>
   );

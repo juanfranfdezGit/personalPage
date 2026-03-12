@@ -1,128 +1,158 @@
-.bookshelf-mockup {
-  width: 57vw;
-  height: 84.5vh;
+.bookContainer {
+  width: 700px;
+  height: 1000px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 10;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 20px black;
+  top: 10vh;
+  right: 8vw;
+  transform: translateX(-50%);
 }
 
-.bookshelf-index {
-  z-index: 5;
+.book {
+  width: 100%;
+  height: 100%;
   position: relative;
-  left: 5vw;
-  top: 4vh;
+  transform-style: preserve-3d;
+  perspective: 2500px;
 }
 
-.bookshelf-index h2 {
-  font-size: 3.2rem;
-}
-
-.bookshelf-index ul {
-  list-style: none;
-  padding: 0.5rem 1rem;
-}
-
-.bookshelf-index ul li {
-  margin: 0.5rem 0;
-  font-size: 1.5rem;
-}
-
-.bookshelf-about {
-  display: none;
-  z-index: 5;
+/* Cada página */
+.page {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  right: 5vw;
-  top: 4vh;
-  font-size: 1.5rem;
-  max-width: 20vw;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease;
+  --initial-z: 0;
 }
 
-.bookshelf-about h2 {
-  font-size: 2.7rem;
-}
-
-.bookshelf-about p {
-  margin: 1rem 0;
-  line-height: 1.4;
-}
-
-.bookshelf-about.active {
-  display: block;
-}
-
-.bookshelf-exp {
-  display: none;
-  z-index: 5;
+/* Frente y dorso */
+.front,
+.back {
   position: absolute;
-  right: 5vw;
-  top: 4vh;
-  font-size: 1.5rem;
-  max-width: 20vw;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-.bookshelf-exp h2 {
-  font-size: 2.7rem;
+.back {
+  transform: rotateY(180deg);
 }
 
-.bookshelf-exp ul {
-  list-style: none;
-  padding: 0.5rem 1rem;
-}
-
-.bookshelf-exp ul li {
-  margin: 0.5rem 0;
-  font-size: 1.5rem;
-}
-
-.bookshelf-exp.active {
-  display: block;
-}
-
-.postBTN {
+/* Portada */
+.front-cover {
+  background-image: url("/assets/book/cover.png");
+  z-index: 20;
   position: absolute;
-  bottom: 4vh;
-  right: 1vw;
-  transform: translateX(-50%);
-  padding: 0.5rem 1.5rem;
-  font-size: 1.2rem;
-  background-color: #333;
+}
+
+.back-contra-portrait {
+  background-image: url("/assets/book/cover-back.png");
+}
+
+.back-4 {
+  background-image: url("/assets/book/back.png");
+}
+
+.book .page {
+  z-index: var(--initial-z);
+  background: #ecdbcd;
+}
+
+/* Capas de páginas */
+.book .page:nth-child(1) {
+  transform: translateZ(0px);
+  --initial-z: 6;
+}
+.book .page:nth-child(2) {
+  transform: translateZ(-0.05px);
+  --initial-z: 5;
+}
+.book .page:nth-child(3) {
+  transform: translateZ(-0.1px);
+  --initial-z: 4;
+}
+.book .page:nth-child(4) {
+  transform: translateZ(-0.15px);
+  --initial-z: 3;
+}
+.book .page:nth-child(5) {
+  transform: translateZ(-0.2px);
+  --initial-z: 4;
+}
+.book .page:nth-child(6) {
+  transform: translateZ(-0.25px);
+  --initial-z: 3;
+}
+
+/* Animación */
+@keyframes pageNext {
+  0% {
+    transform: rotateY(0deg);
+    z-index: var(--initial-z);
+  }
+  99% {
+    z-index: var(--initial-z);
+  }
+  100% {
+    transform: rotateY(-180deg);
+    z-index: calc(-1 * var(--initial-z));
+  }
+}
+
+@keyframes pageBack {
+  0% {
+    transform: rotateY(-180deg);
+    z-index: var(--initial-z);
+  }
+  99% {
+    z-index: var(--initial-z);
+  }
+  100% {
+    transform: rotateY(0deg);
+    z-index: calc(-1 * var(--initial-z));
+  }
+}
+
+/* Animaciones de cada página */
+.page.next {
+  animation: pageNext 1s ease-in-out forwards;
+}
+
+.page.back {
+  animation: pageBack 1s ease-in-out forwards;
+}
+
+.pageBtn {
+  position: absolute;
+  z-index: 10;
+  left: 33vw;
+  bottom: 3vh;
+  padding: 8px 16px;
+  max-width: 200px;
+  font-size: 1.4rem;
+  background: rgba(0, 0, 0, 0.7);
   color: white;
-  border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
 }
 
-.antBTN {
-  position: absolute;
-  bottom: 4vh;
-  left: 9vw;
-  transform: translateX(-50%);
-  padding: 0.5rem 1.5rem;
-  font-size: 1.2rem;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+.pageBtn.nextPage {
+  left: 60vw;
+  bottom: 3vh;
 }
 
-.leftNum {
-  position: absolute;
-  bottom: 5vh;
-  left: 16vw;
-  font-weight: 700;
-  font-size: 1.3rem;
-}
-
-.rightNum {
-  position: absolute;
-  bottom: 5vh;
-  right: 15vw;
-  font-weight: 700;
-  font-size: 1.3rem;
+.pageBtn.disabled {
+  display: none;
 }
