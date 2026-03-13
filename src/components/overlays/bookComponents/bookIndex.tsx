@@ -3,7 +3,7 @@ import "../../../styles/room/bookContent.css";
 export default function BookIndex() {
   return (
     <>
-      <div className="bookshelf-index">
+      <div className="book-page bookshelf-index">
         <h2>Indice</h2>
         <ul>
           <li>Sobre Mi</li>

@@ -3,7 +3,7 @@ import "../../../styles/room/bookContent.css";
 export default function Experience() {
   return (
     <>
-      <div className="bookshelf-exp">
+      <div className="book-page bookshelf-exp">
         <h2>Experiencia</h2>
         <ul>
           <li>

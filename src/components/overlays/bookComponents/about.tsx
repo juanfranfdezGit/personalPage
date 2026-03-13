@@ -3,7 +3,7 @@ import "../../../styles/room/bookContent.css";
 export default function About() {
   return (
     <>
-      <div className="bookshelf-about">
+      <div className="book-page bookshelf-about">
         <h2>Sobre Mi</h2>
         <p>
           Soy desarrollador web full-stack, con experiencia en HTML, CSS,
@@ -19,6 +19,15 @@ export default function About() {
           experiencia del usuario. Me apasiona aprender nuevas tecnologías y
           contribuir a proyectos desafiantes.
         </p>
+        <p>Algunos enlaces interesantes:</p>
+        <ul>
+          <li>
+            <a href="">Github: https:/github</a>
+          </li>
+          <li>
+            <a href="">Linkedin: https:/linkedin</a>
+          </li>
+        </ul>
       </div>
     </>
   );
