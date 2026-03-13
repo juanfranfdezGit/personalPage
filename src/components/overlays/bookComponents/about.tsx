@@ -6,26 +6,41 @@ export default function About() {
       <div className="book-page bookshelf-about">
         <h2>Sobre Mi</h2>
         <p>
-          Soy desarrollador web full-stack, con experiencia en HTML, CSS,
-          JavaScript, React, Angular, Astro, NodeJS, SQL. Además, cuento con
-          formación en diseño gráfico, UX/UI y SEO técnico, lo que me permite
-          ofrecer soluciones web completas, optimizadas para rendimiento y
-          usabilidad.
+          Soy desarrollador web full-stack especializado en la creación de
+          aplicaciones y sitios web modernos utilizando tecnologías como HTML,
+          CSS, JavaScript, React, Angular, Astro, NodeJS y SQL. Me enfoco en
+          construir soluciones eficientes, escalables y con una experiencia de
+          usuario clara y optimizada.
         </p>
+
         <p>
-          He trabajado en proyectos de desarrollo y diseño tanto como
-          desarrollador web en Impacto SEO como full stack freelance, donde he
-          creado y optimizado sitios web adaptables y centrados en la
-          experiencia del usuario. Me apasiona aprender nuevas tecnologías y
-          contribuir a proyectos desafiantes.
+          Además de desarrollo, cuento con formación en diseño gráfico, UX/UI y
+          SEO técnico, lo que me permite abordar los proyectos desde una
+          perspectiva integral: diseño visual, arquitectura técnica y
+          optimización para buscadores.
+        </p>
+
+        <p>
+          He trabajado tanto en proyectos profesionales como desarrollador web
+          en Impacto SEO como en proyectos freelance full-stack, desarrollando
+          plataformas adaptables y optimizadas para rendimiento y usabilidad.
+          Disfruto aprendiendo nuevas tecnologías y aplicándolas en proyectos
+          que combinan creatividad, diseño y desarrollo.
         </p>
         <p>Algunos enlaces interesantes:</p>
         <ul>
           <li>
-            <a href="">Github: https:/github</a>
+            <a href="https://github.com/juanfranfdezGit" target="_blank">
+              Github: juanfranfdezGit
+            </a>
           </li>
           <li>
-            <a href="">Linkedin: https:/linkedin</a>
+            <a
+              href="https://www.linkedin.com/in/juan-francisco-romero-fernandez-928526225/"
+              target="_blank"
+            >
+              Linkedin: Juan Francisco Romero Fernandez
+            </a>
           </li>
         </ul>
       </div>
